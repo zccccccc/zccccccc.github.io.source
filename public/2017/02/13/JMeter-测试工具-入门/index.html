@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Description-->
+    
+        <meta name="description" content="说明(入门使用)：
+jdk版本 1.7 
+下载 apache-jmeter 版本随意 实例中使用的2.13
+Test Plan 执行计划  执行使用  测试使用 如：回放测试
+WorkBench 工作区域，准备使用，如：录制
+–启动 ./bin/jmeter.sh 
+
+###下面开始自动话测试，录制">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="张超">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="JMeter 测试工具 入门"/>
+    
+
+    <!--Open Graph Description-->
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="变者"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+        <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>JMeter 测试工具 入门 - 变者</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"/>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Google Analytics -->
+    
+
+
+    <!-- favicon -->
+    
+	
+</head>
+
+
+<body>
+
+    <!-- Menu -->
+    <!-- Navigation -->
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">变者</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                
+                    <li>
+                        <a href="/">
+                            
+                                Home
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="/archives">
+                            
+                                Archives
+                            
+                        </a>
+                    </li>
+                
+                    <li>
+                        <a href="https://github.com/zccccccc/">
+                            
+                                <i class="fa fa-github fa-stack-2x"></i>
+                            
+                        </a>
+                    </li>
+                
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+</nav>
+
+    <!-- Main Content -->
+    <!-- Page Header -->
+<!-- Set your background image for this header in your post front-matter: cover -->
+
+<header class="intro-header" style="background-image: url('http://www.codeblocq.com/assets/projects/hexo-theme-clean-blog/img/home-bg.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="post-heading">
+                    <h1>JMeter 测试工具 入门</h1>
+                    
+                    <span class="meta">
+                        <!-- Date and Author -->
+                        
+                        2017-02-13
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Post Content -->
+<article>
+    <div class="container">
+        <div class="row">
+
+            <!-- Tags and categories -->
+           
+                <div class="col-lg-4 col-lg-offset-2 col-md-5 col-md-offset-1 post-tags">
+                    
+                        
+
+
+<a href="/tags/java/">#java</a>
+
+
+                    
+                </div>
+                <div class="col-lg-4 col-md-5 post-categories">
+                    
+                </div>
+            
+
+            <!-- Gallery -->
+            
+
+            <!-- Post Main Content -->
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <h3 id="说明-入门使用-："><a href="#说明-入门使用-：" class="headerlink" title="说明(入门使用)："></a>说明(入门使用)：</h3><ul>
+<li>jdk版本 1.7 </li>
+<li>下载 <a href="http://jmeter.apache.org/download_jmeter.cgi" target="_blank" rel="external">apache-jmeter</a> 版本随意 实例中使用的2.13</li>
+<li>Test Plan 执行计划  执行使用  测试使用 如：回放测试</li>
+<li>WorkBench 工作区域，准备使用，如：录制</li>
+<li>–启动 ./bin/jmeter.sh </li>
+</ul>
+<p>###下面开始自动话测试，录制 ＋ 回放</p>
+<p>#####创建线程组和控制器</p>
+<p> <img src="http://ol5i7ltje.bkt.clouddn.com/69124311-7331-472F-B9CB-19D667B74D7E.png" alt="1"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/76DDFAC0-EDB8-4378-A370-B0EAEBCABAEC.png" alt="2"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/A850D422-5CF4-40FD-8657-964B3A3DA5C0.png" alt="3"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/EB68A8DB-D06C-4B7C-806E-B0DDF988C9A2.png" alt="4"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/D1658BF8-BF4D-432F-B681-3403C4D0A1C1.png" alt="5"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/05067694-C406-4261-B40F-081A9CF60879.png" alt="6"></p>
+<p>#####选择目标控制器<br> <img src="http://ol5i7ltje.bkt.clouddn.com/E9F57B0D-DD8F-4DA9-8DD9-51C96A325669.png" alt="7"></p>
+<p>#####创建两个监听查询<br> <img src="http://ol5i7ltje.bkt.clouddn.com/041812CA-5FD8-486F-B77E-44B65E0B69FC.png" alt="8"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/43CEA00E-37B1-4DE0-A382-1E791A624BB4.png" alt="9"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/9FC2876B-4DCF-4219-ACD7-31FDE6473981.png" alt="10"></p>
+<p>#####开始录制<br> <img src="http://ol5i7ltje.bkt.clouddn.com/B70872B0-209B-4F0A-BE8B-F8647B04DCF8.png" alt="10"></p>
+<p>#####已经开始录制了<br> <img src="http://ol5i7ltje.bkt.clouddn.com/5B221055-B544-468D-BD04-E434EC658201.png" alt="11"></p>
+<p>#####准备回放，停止录制<br> <img src="http://ol5i7ltje.bkt.clouddn.com/77BA9F59-AD43-480B-AACC-AC60E18D7EC6.png" alt="11"> </p>
+<p>#####开始回放<br>  <img src="http://ol5i7ltje.bkt.clouddn.com/D219EB49-D5DB-4C1C-B6C5-827A36B0A6DB.png" alt="11"> </p>
+
+
+                
+            </div>
+
+            <!-- Comments -->
+            
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    
+    <hr />
+   
+    
+        <section id="comments">
+ 
+ 
+ 
+    <div class="ds-thread" data-thread-key="jmeter-JMeter-测试工具-入门" data-title="JMeter 测试工具 入门" data-url=":year/:month/:day/:title/"></div>
+ 
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'zccccccc'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+ 
+  </section>
+ 
+
+
+
+
+
+
+
+
+
+                </div>
+            
+        </div>
+    </div>
+</article>
+
+    <!-- Footer -->
+    <hr />
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <ul class="list-inline text-center">
+                    
+
+                    
+
+                    
+                        <li>
+                            <a href="https://github.com/zccccccc/" target="_blank">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fa fa-circle fa-stack-2x"></i>
+                                    <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    
+
+                    
+
+                    
+
+                    
+                </ul>
+                <p class="copyright text-muted">&copy; 2017 张超<br></p>
+                <p class="copyright text-muted">Original Theme <a target="_blank" href="http://startbootstrap.com/template-overviews/clean-blog/">Clean Blog</a> from <a href="http://startbootstrap.com/" target="_blank">Start Bootstrap</a></p>
+                <p class="copyright text-muted">Adapted for <a target="_blank" href="https://hexo.io/">Hexo</a> by <a href="http://www.codeblocq.com/" target="_blank">Jonathan Klughertz</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+    <!-- After footer scripts -->
+    
+<!-- jQuery -->
+<script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+
+<!-- Bootstrap -->
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- Disqus Comments -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'zccccccc';
+
+    (function(){
+        var dsq = document.createElement('script');
+        dsq.type = 'text/javascript';
+        dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+</body>
+
+</html>
