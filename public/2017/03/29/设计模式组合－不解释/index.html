@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>设计模式组合－不解释 | 变者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="组合模式 允许你将对象组合成树形结构来表现 “整体/部分” 层次结构, 组合能让客户以一致的方式处理个别对象以及对象组合12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式组合－不解释">
+<meta property="og:url" content="https://github.com/zccccccc/2017/03/29/设计模式组合－不解释/index.html">
+<meta property="og:site_name" content="变者">
+<meta property="og:description" content="组合模式 允许你将对象组合成树形结构来表现 “整体/部分” 层次结构, 组合能让客户以一致的方式处理个别对象以及对象组合12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+<meta property="og:updated_time" content="2017-03-29T02:14:49.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式组合－不解释">
+<meta name="twitter:description" content="组合模式 允许你将对象组合成树形结构来表现 “整体/部分” 层次结构, 组合能让客户以一致的方式处理个别对象以及对象组合12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152535455565758596061626364656667686970717273747">
+  
+    <link rel="alternate" href="/atom.xml" title="变者" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">变者</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/zccccccc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="clean-blog-设计模式组合－不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/29/设计模式组合－不解释/" class="article-date">
+  <time datetime="2017-03-29T02:09:26.000Z" itemprop="datePublished">2017-03-29</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式组合－不解释
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="组合模式-允许你将对象组合成树形结构来表现-“整体-部分”-层次结构-组合能让客户以一致的方式处理个别对象以及对象组合"><a href="#组合模式-允许你将对象组合成树形结构来表现-“整体-部分”-层次结构-组合能让客户以一致的方式处理个别对象以及对象组合" class="headerlink" title="组合模式 允许你将对象组合成树形结构来表现 “整体/部分” 层次结构, 组合能让客户以一致的方式处理个别对象以及对象组合"></a>组合模式 允许你将对象组合成树形结构来表现 “整体/部分” 层次结构, 组合能让客户以一致的方式处理个别对象以及对象组合</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * ***当前例子为解决 迭代器模式中出现的问题***</div><div class="line"> * 建议先看 迭代器模式</div><div class="line"> * 组合模式:   允许你将对象组合成树形结构来表现 &quot;整体/部分&quot; 层次结构,</div><div class="line"> *       组合能让客户以一致的方式处理个别对象以及对象组合</div><div class="line"> * &lt;p&gt;</div><div class="line"> * 当前实现方式: 就是将迭代器中的需要编码写入的 系统及菜单更换为 基于组合模式动态组织</div><div class="line"> *</div><div class="line"> * 要点:</div><div class="line"> * 1.迭代器允许访问聚合的元素,而不需要暴露它的内部结构(存储方式)</div><div class="line"> * 2.迭代器将遍历聚合的工作封装进一个对象中</div><div class="line"> * 3.当使用迭代器的时候,我们依赖聚合提供遍历</div><div class="line"> * 4.迭代器提供一个通用的接口,让我们遍历聚合的项,当我们编码使用聚合项时,就可以使用多态机制</div><div class="line"> * 5.我们应该努力让一个类只分配一个责任</div><div class="line"> * 6.组合模式提供一个结构,可同时包容个别对象和组合对象</div><div class="line"> * 7.组合模式允许客户对个别对象以及组合对象一视同仁</div><div class="line"> * 8.组合结构内的任意对象称为组件,组件可以是组合,也可以是叶节点</div><div class="line"> * 9.在实现组合模式时,有许多设计上的折衷,你要根据需要平横透明性和安全性</div><div class="line"> *</div><div class="line"> */</div><div class="line">public class CompositePattern &#123;</div><div class="line"></div><div class="line">    public static void main(String args[]) &#123;</div><div class="line"></div><div class="line">        CompositeSystemMenu userCenterMenu = new CompositeSystemMenu(&quot;用户系统&quot;, &quot;这是用户系统的菜单&quot;);</div><div class="line">        CompositeSystemMenu tradeMenu = new CompositeSystemMenu(&quot;交易系统&quot;, &quot;交易系统菜单&quot;);</div><div class="line"></div><div class="line"></div><div class="line">        userCenterMenu.add(</div><div class="line">                new CompositeMenuItem(&quot;1&quot;, &quot;用户注册&quot;, &quot;USER_REG&quot;, &quot;0&quot;),</div><div class="line">                new CompositeMenuItem(&quot;2&quot;, &quot;用户新增&quot;, &quot;USER_ADD&quot;, &quot;0&quot;),</div><div class="line">                new CompositeMenuItem(&quot;3&quot;, &quot;用户删除&quot;, &quot;USER_ADD&quot;, &quot;0&quot;));</div><div class="line"></div><div class="line">        tradeMenu.add(new CompositeMenuItem(&quot;1&quot;, &quot;订单查看&quot;, &quot;TRADE_SEL&quot;, &quot;0&quot;),</div><div class="line">                new CompositeMenuItem(&quot;1&quot;, &quot;订单处理&quot;, &quot;TRADE_OPE&quot;, &quot;0&quot;),</div><div class="line">                new CompositeMenuItem(&quot;1&quot;, &quot;订单删除&quot;, &quot;TRADE_DEL&quot;, &quot;0&quot;));</div><div class="line"></div><div class="line"></div><div class="line">        CompositeSystemMenu all = new CompositeSystemMenu(&quot;所有系统&quot;, &quot;所有系统的菜单&quot;);</div><div class="line">        all.add(userCenterMenu, tradeMenu);</div><div class="line"></div><div class="line">        CompositeClient compositeClient = new CompositeClient(all);</div><div class="line">        compositeClient.printMenu();</div><div class="line">        compositeClient.printAllMenu();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">//客户端调用</div><div class="line"></div><div class="line">/**</div><div class="line"> * 对比迭代其客户端,发现组合模式的客户端非常简单</div><div class="line"> */</div><div class="line">class CompositeClient &#123;</div><div class="line"></div><div class="line">    MenuComponent allMenus;</div><div class="line"></div><div class="line">    public CompositeClient(MenuComponent allMenus) &#123;</div><div class="line">        this.allMenus = allMenus;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void printMenu() &#123;</div><div class="line">        allMenus.print();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void printAllMenu()&#123;</div><div class="line"></div><div class="line">        Iterator iterator = allMenus.createIterator();</div><div class="line">        while (iterator.hasNext())&#123;</div><div class="line">            MenuComponent menu = (MenuComponent)iterator.next();</div><div class="line">            try &#123;</div><div class="line">                menu.print();</div><div class="line">            &#125;catch (UnsupportedOperationException e)&#123;&#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 菜单组件抽象类</div><div class="line"> * 所有的组件都必须实现当前接口,然后,叶节点和组合节点的角色不同,</div><div class="line"> * 所以有些方法可能并不适合某种节点,面对这种情况,最好抛出运行时异常</div><div class="line"> */</div><div class="line">abstract class MenuComponent &#123;</div><div class="line"></div><div class="line">    public void add(MenuComponent... menuComponent) &#123;</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void remove(MenuComponent menuComponent) &#123;</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public MenuComponent getChild(int i) &#123;</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public String getName() &#123;</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 描述</div><div class="line">     **/</div><div class="line">    public String getDescribe() &#123;</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getCode() &#123;</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getId() &#123;</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public void print() &#123;</div><div class="line">        throw new UnsupportedOperationException();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    abstract java.util.Iterator createIterator();</div><div class="line">&#125;</div><div class="line"></div><div class="line">/***</div><div class="line"> * 系统菜单</div><div class="line"> */</div><div class="line">class CompositeSystemMenu extends MenuComponent &#123;</div><div class="line"></div><div class="line">    ArrayList menuComponents = new ArrayList();</div><div class="line">    String name;</div><div class="line">    String describe;</div><div class="line"></div><div class="line">    public CompositeSystemMenu(String name, String describe) &#123;</div><div class="line">        this.name = name;</div><div class="line">        this.describe = describe;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void add(MenuComponent... menuComponent) &#123;</div><div class="line"></div><div class="line">        for (MenuComponent m : menuComponent) &#123;</div><div class="line">            menuComponents.add(m);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void remove(MenuComponent menuComponent) &#123;</div><div class="line">        menuComponents.remove(menuComponent);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public MenuComponent getChild(int i) &#123;</div><div class="line">        return (MenuComponent) menuComponents.get(i);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void print() &#123;</div><div class="line">        System.out.println(this.toString());</div><div class="line">        java.util.Iterator iterator = menuComponents.iterator();</div><div class="line">        while (iterator.hasNext()) &#123;</div><div class="line">            MenuComponent menuComponent = (MenuComponent) iterator.next();</div><div class="line">            menuComponent.print();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getName() &#123;</div><div class="line">        return this.name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getDescribe() &#123;</div><div class="line">        return this.describe;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getId() &#123;</div><div class="line">        return super.getId();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getCode() &#123;</div><div class="line">        return super.getCode();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String toString() &#123;</div><div class="line">        return &quot;SystemMenu&#123;&quot; +</div><div class="line">                &quot;, name=&apos;&quot; + name + &apos;\&apos;&apos; +</div><div class="line">                &quot;, describe=&apos;&quot; + describe + &apos;\&apos;&apos; +</div><div class="line">                &apos;&#125;&apos;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    Iterator createIterator() &#123;</div><div class="line">        return new CompositeSystemMenuIterator(menuComponents.iterator());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    class CompositeSystemMenuIterator implements java.util.Iterator&#123;</div><div class="line"></div><div class="line">        Stack stack = new Stack();</div><div class="line"></div><div class="line">        public CompositeSystemMenuIterator(Iterator iterator) &#123;</div><div class="line">           stack.push(iterator);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public boolean hasNext() &#123;</div><div class="line"></div><div class="line">            if(stack.isEmpty())&#123;return false;&#125;</div><div class="line">            else&#123;</div><div class="line">                Iterator iterator = (Iterator)stack.peek();</div><div class="line"></div><div class="line">                if(!iterator.hasNext())&#123;</div><div class="line">                    stack.pop();</div><div class="line">                    return hasNext();</div><div class="line">                &#125;else &#123;</div><div class="line">                    return true;</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public Object next() &#123;</div><div class="line">           if(hasNext())&#123;</div><div class="line"></div><div class="line">               Iterator iterator = (Iterator)stack.peek();</div><div class="line">               MenuComponent component = (MenuComponent)iterator.next();</div><div class="line"></div><div class="line">               if(component instanceof CompositeSystemMenu)&#123;</div><div class="line">                   stack.push(component.createIterator());</div><div class="line">               &#125;</div><div class="line">               return component;</div><div class="line">           &#125;else &#123;</div><div class="line">               return null;</div><div class="line">           &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void remove() &#123;</div><div class="line">         throw  new UnsupportedOperationException();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/***</div><div class="line"> * 菜单集合</div><div class="line"> */</div><div class="line">class CompositeMenuItem extends MenuComponent &#123;</div><div class="line"></div><div class="line">    public CompositeMenuItem(String code, String id, String name, String paterId) &#123;</div><div class="line">        this.code = code;</div><div class="line">        this.id = id;</div><div class="line">        this.name = name;</div><div class="line">        this.paterId = paterId;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private String id;</div><div class="line">    private String name;</div><div class="line">    private String code;</div><div class="line">    private String paterId;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getCode() &#123;</div><div class="line">        return code;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getId() &#123;</div><div class="line">        return id;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getPaterId() &#123;</div><div class="line">        return paterId;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void print() &#123;</div><div class="line">        System.out.println(this.toString());</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String toString() &#123;</div><div class="line">        return &quot;MenuItem&#123;&quot; +</div><div class="line">                &quot;code=&apos;&quot; + code + &apos;\&apos;&apos; +</div><div class="line">                &quot;, id=&apos;&quot; + id + &apos;\&apos;&apos; +</div><div class="line">                &quot;, name=&apos;&quot; + name + &apos;\&apos;&apos; +</div><div class="line">                &quot;, paterId=&apos;&quot; + paterId + &apos;\&apos;&apos; +</div><div class="line">                &apos;&#125;&apos;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    Iterator createIterator() &#123;</div><div class="line">        return new NullIterator();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    private class NullIterator implements java.util.Iterator&#123;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public boolean hasNext() &#123;</div><div class="line">            return false;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public Object next() &#123;</div><div class="line">            return null;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        @Override</div><div class="line">        public void remove() &#123;</div><div class="line"></div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/29/设计模式组合－不解释/" data-id="cj1yap0qx000s045rv3lhrkq0" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/29/设计模式迭代器－不解释/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          设计模式迭代器－不解释
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/29/设计模式模版方法－不解释/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">设计模式模版方法－不解释</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="clean-blog-设计模式组合－不解释" data-title="设计模式组合－不解释" data-url="https://github.com/zccccccc/2017/03/29/设计模式组合－不解释/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'zccccccc'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/26/设计模式-状态模式/">设计模式-状态模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式迭代器－不解释/">设计模式迭代器－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式组合－不解释/">设计模式组合－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式模版方法－不解释/">设计模式模版方法－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/AES-加密MD5签名/">AES 加密MD5签名</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 张超<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

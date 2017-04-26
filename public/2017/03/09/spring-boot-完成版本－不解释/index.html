@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>spring-boot 完成版本－不解释 | 变者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文为Spring-boot 完整版本，可用于基础开发上一文中我们介绍了如何搭建sprign-boot 服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）
+Swagger2 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot 完成版本－不解释">
+<meta property="og:url" content="https://github.com/zccccccc/2017/03/09/spring-boot-完成版本－不解释/index.html">
+<meta property="og:site_name" content="变者">
+<meta property="og:description" content="本文为Spring-boot 完整版本，可用于基础开发上一文中我们介绍了如何搭建sprign-boot 服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）
+Swagger2 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持">
+<meta property="og:updated_time" content="2017-03-10T02:01:26.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-boot 完成版本－不解释">
+<meta name="twitter:description" content="本文为Spring-boot 完整版本，可用于基础开发上一文中我们介绍了如何搭建sprign-boot 服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）
+Swagger2 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持">
+  
+    <link rel="alternate" href="/atom.xml" title="变者" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">变者</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/zccccccc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="clean-blog-spring-boot-完成版本－不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/09/spring-boot-完成版本－不解释/" class="article-date">
+  <time datetime="2017-03-09T09:47:31.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot 完成版本－不解释
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文为Spring-boot-完整版本，可用于基础开发"><a href="#本文为Spring-boot-完整版本，可用于基础开发" class="headerlink" title="本文为Spring-boot 完整版本，可用于基础开发"></a>本文为Spring-boot 完整版本，可用于基础开发</h2><h6 id="上一文中我们介绍了如何搭建sprign-boot-服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）"><a href="#上一文中我们介绍了如何搭建sprign-boot-服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）" class="headerlink" title="上一文中我们介绍了如何搭建sprign-boot 服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）"></a>上一文中我们介绍了如何搭建sprign-boot 服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）</h6><ol>
+<li>Swagger2 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。 </li>
+<li>Spring jap 已经实现了很多数据库操作相关功能，但是拼写SQL是个硬伤，当前项目中实现了一种方式，将 resources/dbsql下的 XXX.xml 映射到全局map中，下面会有详细介绍</li>
+</ol>
+<hr>
+<h4 id="项目源码-github源码地址"><a href="#项目源码-github源码地址" class="headerlink" title="项目源码:github源码地址"></a>项目源码:<a href="https://github.com/zccccccc/cici">github源码地址</a></h4><hr>
+<hr>
+<h4 id="Swagger2介绍-开始"><a href="#Swagger2介绍-开始" class="headerlink" title="Swagger2介绍 开始"></a>Swagger2介绍 开始</h4><p> <strong><em>pom.xml 添加</em></strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;dependency&gt;</div><div class="line">       &lt;groupId&gt;io.springfox&lt;/groupId&gt;</div><div class="line">       &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</div><div class="line">       &lt;version&gt;2.2.2&lt;/version&gt;</div><div class="line">   &lt;/dependency&gt;</div><div class="line">   &lt;dependency&gt;</div><div class="line">       &lt;groupId&gt;io.springfox&lt;/groupId&gt;</div><div class="line">       &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</div><div class="line">       &lt;version&gt;2.2.2&lt;/version&gt;</div><div class="line">   &lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<p><strong><em>在MainApplication平级创建 Swagger2.java</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@Configuration</div><div class="line">@EnableSwagger2</div><div class="line">public class Swagger2 &#123;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public Docket createRestApi() &#123;</div><div class="line">        return new Docket(DocumentationType.SWAGGER_2)</div><div class="line">                .apiInfo(apiInfo())</div><div class="line">                .select()</div><div class="line">                .apis(RequestHandlerSelectors.basePackage(&quot;com.springboot.demo&quot;))</div><div class="line">                .paths(PathSelectors.any())</div><div class="line">                .build();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    private ApiInfo apiInfo() &#123;</div><div class="line"></div><div class="line"></div><div class="line">                return new ApiInfoBuilder()</div><div class="line">                .title(&quot;Spring Boot 中使用Swagger2构建RESTful APIs&quot;).version(&quot;2.0&quot;).build();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em> API接口方法中加入下面注解，就可以了使用了，访问地址 <a href="http://localhost:7777" target="_blank" rel="external">http://localhost:7777</a> /swagger-ui.html 就可以访问了</em></strong>  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">@ApiOperation(value = &quot;获取用户列表&quot;, notes = &quot;需要传入json参数&quot;)</div><div class="line">@ApiImplicitParams(&#123;</div><div class="line">        @ApiImplicitParam(name = &quot;sysUserDomain&quot;, value = &quot;系统用户实体&quot;, required = true, dataType = &quot;SysUserDomain&quot;)</div><div class="line">&#125;)</div><div class="line">@ApiResponses(value = &#123;</div><div class="line">        @ApiResponse(code = 200, message = &quot;Success&quot;, response = BaseOutput.class),</div><div class="line">        @ApiResponse(code = 401, message = &quot;Unauthorized&quot;),</div><div class="line">        @ApiResponse(code = 403, message = &quot;Forbidden&quot;),</div><div class="line">        @ApiResponse(code = 404, message = &quot;Not Found&quot;),</div><div class="line">        @ApiResponse(code = 500, message = &quot;Failure&quot;)&#125;)</div><div class="line">@PostMapping(value = &quot;list&quot;)</div><div class="line">public BaseOutput&lt;SysUser&gt; list(HttpServletRequest request, HttpServletResponse response, @RequestBody SysUserDomain sysUserDomain) &#123;</div><div class="line">    BaseOutput&lt;SysUser&gt; baseOutput = null;</div><div class="line">    try &#123;</div><div class="line"></div><div class="line">        baseOutput = sysUserService.findList(sysUserDomain);</div><div class="line"></div><div class="line">    &#125; catch (Exception ex) &#123;</div><div class="line"></div><div class="line">        baseOutput = baseOutput == null ? (baseOutput = new BaseOutput&lt;SysUser&gt;()) : baseOutput;</div><div class="line">        baseOutput.setReturnCode(new ReturnCode(ReturnCodeDict.ERROR.k, ReturnCodeDict.ERROR.m, ex.getMessage()));</div><div class="line"></div><div class="line"></div><div class="line">    &#125; finally &#123;</div><div class="line">        return baseOutput;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="将sql放到xml中，系统启动时候加载到各个模块中"><a href="#将sql放到xml中，系统启动时候加载到各个模块中" class="headerlink" title="将sql放到xml中，系统启动时候加载到各个模块中"></a>将sql放到xml中，系统启动时候加载到各个模块中</h4><p><strong><em> 在resources 下创建dbsql文件夹 里面包含各种sql的xml: namespace(具体使用实现类，获取sql时使用),version(版本控制后期会加入自动热部署) </em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;db-sql&gt;</div><div class="line">&lt;mapper namespace=&quot;com.springboot.demo.usercenter.usermanager.serve.SysUserServiceImpl&quot; version=&quot;1.0&quot; &gt;</div><div class="line"></div><div class="line">    &lt;sql id=&quot;findListNativeSql&quot;&gt;</div><div class="line">        SELECT</div><div class="line">        distinct</div><div class="line">        XX.module_id,</div><div class="line">        XX.action_code,</div><div class="line">        XX.action_name,</div><div class="line">        ZZ.name module_name,</div><div class="line">        ZZ.url,</div><div class="line">        ZZ.order_id,</div><div class="line">        ZZ.module_desc,</div><div class="line">        ZZ.code module_code,</div><div class="line">        ZZ.parent_id</div><div class="line">        FROM SYS_PRIVILEGE XX,</div><div class="line">        SYS_MODULE ZZ</div><div class="line">        WHERE XX.module_id =ZZ.id</div><div class="line">        AND ZZ.enable_state=&apos;10&apos;</div><div class="line">        and exists</div><div class="line">        ( SELECT 1</div><div class="line">        FROM SYS_USER_AUTH AA,SYS_ROLE BB</div><div class="line">        WHERE AA.user_id =  ?1</div><div class="line">        AND AA.role_id = BB.id</div><div class="line">        AND BB.enable_state=&apos;10&apos;</div><div class="line">        and AA.role_id = XX.role_id</div><div class="line">        AND EXISTS</div><div class="line">        ( SELECT 1</div><div class="line">        FROM sys_system SS</div><div class="line">        WHERE SS.id = BB.sys_id</div><div class="line">        AND SS.code =  ?2 )</div><div class="line">        AND AA.role_id=BB.id)</div><div class="line">    &lt;/sql&gt;</div><div class="line"></div><div class="line">&lt;/mapper&gt;</div><div class="line">&lt;/db-sql&gt;</div></pre></td></tr></table></figure>
+<p><strong><em>读取XML并映射到HashMap中 创建LoadingSqlXml.java</em></strong></p>
+<p><strong><em> 完整版本 </em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">public enum LoadingSqlXml &#123;</div><div class="line"></div><div class="line">    INSTANCE;</div><div class="line"></div><div class="line">    //获取dbsql绝对路径</div><div class="line">    private final static String dbSqlPath = ClassUtils.getDefaultClassLoader().getResource(&quot;dbsql&quot;).getPath();</div><div class="line">    //定义私有SQLMap  XML中的namespace,version 该文件下的sql集合</div><div class="line">    private static final Map&lt;String, HashMap&lt;Double, HashMap&lt;String, String&gt;&gt;&gt; myHashMaps = new HashMap&lt;String, HashMap&lt;Double, HashMap&lt;String, String&gt;&gt;&gt;();</div><div class="line"></div><div class="line">    //定义私有SQLMap集合</div><div class="line">    private static HashMap sqlMap = null;</div><div class="line"></div><div class="line">    //定义版本集合</div><div class="line">    private static final HashMap&lt;Double, HashMap&lt;String, String&gt;&gt; versionMap = new HashMap();</div><div class="line"></div><div class="line"></div><div class="line">    //根据名称找到当前实现类下需要使用的SQL集合</div><div class="line">    //如:   private HashMap&lt;String, String&gt; dbSqlMap = LoadingSqlXml.INSTANCE.findSqlMap(this.getClass().getName());</div><div class="line">    //  dbSqlMap.get(&quot;sqlId&quot;);</div><div class="line">    public HashMap&lt;String, String&gt; findSqlMap(String c) &#123;</div><div class="line"></div><div class="line">        if (myHashMaps.isEmpty()) &#123;</div><div class="line">            try &#123;</div><div class="line">                init();</div><div class="line">            &#125; catch (Exception ex) &#123;</div><div class="line">                ex.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        HashMap&lt;String, String&gt; _h = null;</div><div class="line">        for (Map.Entry&lt;Double, HashMap&lt;String, String&gt;&gt; entry0 : myHashMaps.get(c).entrySet()) &#123;</div><div class="line">            _h = entry0.getValue();</div><div class="line">        &#125;</div><div class="line">        return _h;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //初始化执行</div><div class="line">    public void init() throws InitDataSqlReaderException, DocumentException &#123;</div><div class="line">        if (!myHashMaps.isEmpty()) &#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        File file = new File(dbSqlPath);</div><div class="line">        File[] files = file.listFiles();</div><div class="line">        for (File f : files) &#123;</div><div class="line">            ReadDbSqlXml(f);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //读取文件XML并解析到 数据集合中</div><div class="line">    private void ReadDbSqlXml(File f) throws InitDataSqlReaderException, DocumentException &#123;</div><div class="line"></div><div class="line">        SAXReader reader = new SAXReader();</div><div class="line">        Document doc = reader.read(f);</div><div class="line">        Element root = doc.getRootElement();</div><div class="line">        Element fo;</div><div class="line">        Element value;</div><div class="line">        String fileName = f.getName();</div><div class="line"></div><div class="line">        //迭代器查看有几个</div><div class="line">        for (Iterator i = root.elementIterator(&quot;mapper&quot;); i.hasNext(); ) &#123;</div><div class="line"></div><div class="line">            fo = (Element) i.next();</div><div class="line"></div><div class="line">            List&lt;String&gt; attributes = fo.attributes();</div><div class="line">            if (attributes.size() == 0) &#123;</div><div class="line">                throw new InitDataSqlReaderException(fileName.concat(&quot; 在mapper节点找不到属性,请定义 [namespace,version] &quot;));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            String namespace = fo.attribute(&quot;namespace&quot;).getValue();</div><div class="line">            String version = fo.attribute(&quot;version&quot;).getValue();</div><div class="line"></div><div class="line">            if (StringUtils.isEmpty(namespace)) &#123;</div><div class="line">                throw new InitDataSqlReaderException(fileName.concat(&quot; 在mapper节点找不到属性,请定义 namespace &quot;));</div><div class="line">            &#125;</div><div class="line">            if (StringUtils.isEmpty(version)) &#123;</div><div class="line">                throw new InitDataSqlReaderException(fileName.concat(&quot; 在mapper节点找不到属性,请定义 version &quot;));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            if (myHashMaps.get(namespace) != null) &#123;</div><div class="line">                throw new InitDataSqlReaderException(fileName.concat(&quot; 在mapper节点 中的 namespace 定义重复 ==&gt;&quot; + namespace));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            for (Iterator k = fo.elementIterator(&quot;sql&quot;); k.hasNext(); ) &#123;</div><div class="line">                sqlMap = new HashMap();</div><div class="line">                value = (Element) k.next();</div><div class="line">                String id = value.attribute(&quot;id&quot;).getValue();</div><div class="line"></div><div class="line">                if (id.equals(&quot;&quot;)) &#123;</div><div class="line">                    throw new InitDataSqlReaderException(fileName.concat(&quot;在mapper下sql未定义id&quot;));</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                String sql = String.valueOf(value.getData());</div><div class="line">                if (sqlMap.get(id) == null) &#123;</div><div class="line">                    sqlMap.put(id, sql);</div><div class="line">                &#125; else &#123;</div><div class="line">                    throw new InitDataSqlReaderException(fileName.concat(&quot;sql 节点 ID 定义重复 当前ID=&quot; + id));</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">            versionMap.put(Double.parseDouble(version), sqlMap);</div><div class="line">            myHashMaps.put(namespace, versionMap);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<pre><code>*具体实现代码就不在这里展示了直接看源码吧，比较简单，目录结构 下载到源码后从com.springboot.demo.usercenter.usermanager.web.SysUserController 开始向上阅读*
+</code></pre><p>  <em>目前只是简单实现，后续会介绍完整版本 基于spring cloud 微服务架构整合</em></p>
+<hr>
+<h4 id="项目源码-github源码地址-1"><a href="#项目源码-github源码地址-1" class="headerlink" title="项目源码:github源码地址"></a>项目源码:<a href="https://github.com/zccccccc/cici">github源码地址</a></h4><hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/09/spring-boot-完成版本－不解释/" data-id="cj1yap0qd0005045rzm4v89pu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/10/设计模式策略模式-不解释/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          设计模式策略模式-不解释
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/06/spring-boot-搭建-不解释/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">spring-boot 搭建-不解释</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="clean-blog-spring-boot-完成版本－不解释" data-title="spring-boot 完成版本－不解释" data-url="https://github.com/zccccccc/2017/03/09/spring-boot-完成版本－不解释/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'zccccccc'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/26/设计模式-状态模式/">设计模式-状态模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式迭代器－不解释/">设计模式迭代器－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式组合－不解释/">设计模式组合－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式模版方法－不解释/">设计模式模版方法－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/AES-加密MD5签名/">AES 加密MD5签名</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 张超<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

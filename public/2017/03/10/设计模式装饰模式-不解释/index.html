@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>设计模式装饰模式-不解释 | 变者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="装饰模式:动态扩展功能123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式装饰模式-不解释">
+<meta property="og:url" content="https://github.com/zccccccc/2017/03/10/设计模式装饰模式-不解释/index.html">
+<meta property="og:site_name" content="变者">
+<meta property="og:description" content="装饰模式:动态扩展功能123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+<meta property="og:updated_time" content="2017-03-10T09:29:38.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式装饰模式-不解释">
+<meta name="twitter:description" content="装饰模式:动态扩展功能123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899">
+  
+    <link rel="alternate" href="/atom.xml" title="变者" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">变者</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/zccccccc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="clean-blog-设计模式装饰模式-不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/10/设计模式装饰模式-不解释/" class="article-date">
+  <time datetime="2017-03-10T09:17:46.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式装饰模式-不解释
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="装饰模式-动态扩展功能"><a href="#装饰模式-动态扩展功能" class="headerlink" title="装饰模式:动态扩展功能"></a>装饰模式:动态扩展功能</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">import java.io.*;</div><div class="line">import java.util.ArrayList;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 装饰模式:动态扩展功能</div><div class="line"> * 基于继承的组合方式,灵活配置(InputStream ==&gt; FileInputStream ==&gt; BufferedInputStream)</div><div class="line"> * 其实现核心: 使用对象中返回方法加工再返回</div><div class="line"> * 缺点: 如果被装饰者中数据源非常多,不建议使用组合装饰,因为装饰者除去装饰方法,其他数据源也好同步更新</div><div class="line"> * 适合: 少量数据原 其方法都是基于数据源操作</div><div class="line"> * 可以参考 java.io 使用继承方式使用,只装饰需要处理的方法,因为是单一数据源,不需要复制其他属性</div><div class="line"> * 单一数据源: 不是必须只是一个属性,而是基类型中构造器将如参对象进行属性赋值</div><div class="line"> */</div><div class="line">public class DecoratePattern &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String args[]) &#123;</div><div class="line"></div><div class="line">        //装饰模式演示</div><div class="line">        //decorateDemo();</div><div class="line"></div><div class="line">        //java IO 演示</div><div class="line">        //inputStreamExtDemo()</div><div class="line"></div><div class="line">        //上面两个看不不明白的看这里</div><div class="line">        //角色</div><div class="line">        //给角色装饰各种装备</div><div class="line">        GameRole game = new GameMage();</div><div class="line"></div><div class="line">        //把角色装饰三个武器</div><div class="line">        game = new YiTian(game);</div><div class="line">        game = new TuLongDao(game);</div><div class="line">        game = new NanMingLiHuoJian(game);</div><div class="line"></div><div class="line">        //新的角色</div><div class="line">        //game = new GameKnight();</div><div class="line">       // game = new NanMingLiHuoJian(game);</div><div class="line"></div><div class="line">       System.out.print( game.toString());</div><div class="line">        //游戏展示</div><div class="line">      //  new GameShow(game);</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    //java.io 演示</div><div class="line">    public static void inputStreamExtDemo() &#123;</div><div class="line"></div><div class="line">        int c;</div><div class="line">        try &#123;</div><div class="line">            InputStream in =</div><div class="line">                    new LowerCaseInputStream</div><div class="line">                            (new BufferedInputStream(</div><div class="line">                                    new FileInputStream(&quot;test.txt&quot;)));</div><div class="line"></div><div class="line">            while ((c = in.read()) &gt;= 0) &#123;</div><div class="line">                System.out.println((char) c);</div><div class="line">            &#125;</div><div class="line"></div><div class="line"></div><div class="line">        &#125; catch (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 装饰模式演示</div><div class="line">     * **/</div><div class="line">    public static void decorateDemo() &#123;</div><div class="line"></div><div class="line">        Beverage beverage = new Espresso();</div><div class="line"></div><div class="line">        System.out.println(beverage.getDescription() + &quot; $&quot; + beverage.cost());</div><div class="line"></div><div class="line">        beverage = new Mocha(beverage);</div><div class="line"></div><div class="line">        System.out.println(beverage.getDescription() + &quot; $&quot; + beverage.cost());</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**************************************  Beverage ******************************************************************************************/</div><div class="line"></div><div class="line"></div><div class="line">abstract class Beverage &#123;</div><div class="line"></div><div class="line">    String description = &quot;Unknown Beverage&quot;;</div><div class="line"></div><div class="line">    public String getDescription() &#123;</div><div class="line">        return description;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public abstract double cost();</div><div class="line">&#125;</div><div class="line"></div><div class="line">abstract class CondimentDecorator extends Beverage &#123;</div><div class="line">    public abstract String getDescription();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//被装饰</div><div class="line">class Espresso extends Beverage &#123;</div><div class="line"></div><div class="line">    public Espresso() &#123;</div><div class="line">        description = &quot;Espresso&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public double cost() &#123;</div><div class="line">        return 1.99;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//被装饰</div><div class="line">class HouseBlend extends Beverage &#123;</div><div class="line"></div><div class="line">    public HouseBlend() &#123;</div><div class="line">        description = &quot;House Blend&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public double cost() &#123;</div><div class="line">        return 0.89;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//装饰者</div><div class="line">class Mocha extends CondimentDecorator &#123;</div><div class="line"></div><div class="line">    Beverage beverage;</div><div class="line"></div><div class="line">    public Mocha(Beverage beverage) &#123;</div><div class="line">        this.beverage = beverage;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getDescription() &#123;</div><div class="line">        return beverage.getDescription() + &quot;,Mocha&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public double cost() &#123;</div><div class="line">        return 0.2 + beverage.cost();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**************************************  LowerCaseInputStream ******************************************************************************************/</div><div class="line"></div><div class="line"></div><div class="line">//java io</div><div class="line">class LowerCaseInputStream extends FilterInputStream &#123;</div><div class="line"></div><div class="line">    public LowerCaseInputStream(InputStream in) &#123;</div><div class="line">        super(in);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int read() throws IOException &#123;</div><div class="line">        int c = super.read();</div><div class="line">        return (c == -1 ? c : Character.toLowerCase((char) c));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public int read(byte[] b, int offset, int len) throws IOException &#123;</div><div class="line">        int result = super.read(b, offset, len);</div><div class="line">        for (int i = offset; i &lt; offset + result; i++) &#123;</div><div class="line">            b[i] = (byte) Character.toLowerCase((char) b[i]);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return result;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**************************************  GameRole ******************************************************************************************/</div><div class="line"></div><div class="line">//游戏超类</div><div class="line">abstract class GameRole &#123;</div><div class="line"></div><div class="line">    String name=&quot;角色名称&quot;;</div><div class="line">    ArrayList&lt;String&gt; equip;</div><div class="line">    public GameRole()&#123;&#125;</div><div class="line"></div><div class="line">    public GameRole(String name)&#123;</div><div class="line">        this.name = name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public GameRole(String name, ArrayList&lt;String&gt; equip)&#123;</div><div class="line">        this.name = name;</div><div class="line">        this.equip = equip;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public GameRole(GameRole role)&#123;</div><div class="line">        this.name = role.getName();</div><div class="line">        this.equip = role.getEquip();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    abstract String getDescription();</div><div class="line"></div><div class="line">    abstract int getAttack();</div><div class="line"></div><div class="line">    public String getName() &#123;</div><div class="line">        return name;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public ArrayList&lt;String&gt; getEquip() &#123;</div><div class="line">        return equip==null?new ArrayList&lt;&gt;():equip;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//游戏角色装备</div><div class="line">//必须要实现的方法</div><div class="line">abstract class GameEquip extends GameRole &#123;</div><div class="line"></div><div class="line"></div><div class="line">   public GameEquip(GameRole role)&#123;</div><div class="line">       super(role);</div><div class="line">   &#125;</div><div class="line">    public abstract String getDescription();</div><div class="line">    public abstract ArrayList&lt;String&gt; getEquip();</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String toString()&#123;</div><div class="line">        StringBuffer stringBuffer = new StringBuffer();</div><div class="line">        stringBuffer.append(&quot;名称: &quot;).append(this.getName()).append(&quot; \n&quot;);</div><div class="line">        stringBuffer.append(&quot;描述: &quot;).append(this.getDescription()).append(&quot;\n&quot;);</div><div class="line">        stringBuffer.append(&quot;总攻击: &quot;).append(this.getAttack()).append(&quot;\n&quot;);</div><div class="line">        stringBuffer.append(&quot;装备: &quot;).append(this.getEquip().toString()).append(&quot;\n&quot;);</div><div class="line">        return stringBuffer.toString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/***</div><div class="line"> *</div><div class="line"> *  游戏显示</div><div class="line"> * */</div><div class="line">class GameShow &#123;</div><div class="line"></div><div class="line"></div><div class="line">    GameRole game;</div><div class="line"></div><div class="line">    public GameShow(GameRole gameRole) &#123;</div><div class="line">        this.game = gameRole;</div><div class="line">        StringBuffer stringBuffer = new StringBuffer();</div><div class="line">        stringBuffer.append(&quot;名称: &quot;).append(game.getName()).append(&quot; \n&quot;);</div><div class="line">        stringBuffer.append(&quot;描述: &quot;).append(game.getDescription()).append(&quot;\n&quot;);</div><div class="line">        stringBuffer.append(&quot;总攻击: &quot;).append(game.getAttack()).append(&quot;\n&quot;);</div><div class="line">        stringBuffer.append(&quot;装备: &quot;).append(game.getEquip().toString()).append(&quot;\n&quot;);</div><div class="line"></div><div class="line">        System.out.print(stringBuffer.toString());</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 倚天剑 就用拼音了,真不好翻译</div><div class="line"> **/</div><div class="line">class YiTian extends GameEquip &#123;</div><div class="line"></div><div class="line">    private int atk = 200;</div><div class="line"></div><div class="line"></div><div class="line">    GameRole game;</div><div class="line"></div><div class="line"></div><div class="line">    //复制必要数据</div><div class="line">    public YiTian(GameRole game) &#123;</div><div class="line">        super(game);</div><div class="line">        this.game = game;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    int getAttack() &#123;</div><div class="line">        return atk + game.getAttack();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getDescription() &#123;</div><div class="line">        return game.getDescription()+&quot;, 倚天剑攻击力+&quot; + atk+&quot;&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public ArrayList&lt;String&gt; getEquip() &#123;</div><div class="line"></div><div class="line">        this.equip.add(&quot;倚天剑&quot;);</div><div class="line">        return equip;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//</div><div class="line">///**</div><div class="line">// * 屠龙刀 就用拼音了,真不好翻译</div><div class="line">// **/</div><div class="line">class TuLongDao extends GameEquip &#123;</div><div class="line"></div><div class="line">    private int atk = 200;</div><div class="line"></div><div class="line"></div><div class="line">    GameRole game;</div><div class="line"></div><div class="line">    public TuLongDao(GameRole game) &#123;</div><div class="line">        super(game);</div><div class="line">        this.game = game;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    int getAttack() &#123;</div><div class="line">        return atk + game.getAttack();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getDescription() &#123;</div><div class="line">        return game.getDescription()+&quot;,屠龙刀攻击力+&quot; + atk+&quot;&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public ArrayList&lt;String&gt; getEquip() &#123;</div><div class="line"></div><div class="line">        equip.add(&quot;屠龙刀&quot;);</div><div class="line">        return equip;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//</div><div class="line">///**</div><div class="line">// * 南明离火剑 就用拼音了,真不好翻译</div><div class="line">// **/</div><div class="line">class NanMingLiHuoJian extends GameEquip &#123;</div><div class="line"></div><div class="line">    private int atk = 1200;</div><div class="line"></div><div class="line"></div><div class="line">    GameRole game;</div><div class="line"></div><div class="line">    public NanMingLiHuoJian(GameRole game) &#123;</div><div class="line">        super(game);</div><div class="line">        this.game = game;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    int getAttack() &#123;</div><div class="line">        return atk + game.getAttack();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getDescription() &#123;</div><div class="line">        return game.getDescription()+&quot;,南明离火剑攻击力+&quot; + atk+&quot;&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public ArrayList&lt;String&gt; getEquip() &#123;</div><div class="line"></div><div class="line">        equip.add(&quot;南明离火剑&quot;);</div><div class="line">        return equip;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">//角色-&gt; 法师</div><div class="line">class GameMage extends GameRole &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public GameMage()&#123;</div><div class="line">        this.name = &quot;法师&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getDescription() &#123;</div><div class="line">        return &quot;远程攻击&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    int getAttack() &#123;</div><div class="line">        return 1;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">//角色-&gt; 武士</div><div class="line">class GameKnight extends GameRole &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public GameKnight()&#123;</div><div class="line">        this.name = &quot;武士&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getDescription() &#123;</div><div class="line">        return &quot;近战型攻击&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    int getAttack() &#123;</div><div class="line">        return 1;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/10/设计模式装饰模式-不解释/" data-id="cj1yap0qz000u045r076i7k4m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/10/设计模式适配器模式-不解释/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          设计模式适配器模式-不解释
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/10/设计模式命令模式-不解释/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">设计模式命令模式-不解释</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="clean-blog-设计模式装饰模式-不解释" data-title="设计模式装饰模式-不解释" data-url="https://github.com/zccccccc/2017/03/10/设计模式装饰模式-不解释/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'zccccccc'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/26/设计模式-状态模式/">设计模式-状态模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式迭代器－不解释/">设计模式迭代器－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式组合－不解释/">设计模式组合－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式模版方法－不解释/">设计模式模版方法－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/AES-加密MD5签名/">AES 加密MD5签名</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 张超<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>变者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="变者">
+<meta property="og:url" content="https://github.com/zccccccc/page/2/index.html">
+<meta property="og:site_name" content="变者">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="变者">
+  
+    <link rel="alternate" href="/atom.xml" title="变者" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">变者</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/zccccccc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="clean-blog-设计模式工厂-不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/10/设计模式工厂-不解释/" class="article-date">
+  <time datetime="2017-03-10T09:11:09.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/10/设计模式工厂-不解释/">设计模式工厂-不解释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="工厂模式-工厂方法-抽象工厂"><a href="#工厂模式-工厂方法-抽象工厂" class="headerlink" title="工厂模式,工厂方法,抽象工厂"></a>工厂模式,工厂方法,抽象工厂</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div><div class="line">253</div><div class="line">254</div><div class="line">255</div><div class="line">256</div><div class="line">257</div><div class="line">258</div><div class="line">259</div><div class="line">260</div><div class="line">261</div><div class="line">262</div><div class="line">263</div><div class="line">264</div><div class="line">265</div><div class="line">266</div><div class="line">267</div><div class="line">268</div><div class="line">269</div><div class="line">270</div><div class="line">271</div><div class="line">272</div><div class="line">273</div><div class="line">274</div><div class="line">275</div><div class="line">276</div><div class="line">277</div><div class="line">278</div><div class="line">279</div><div class="line">280</div><div class="line">281</div><div class="line">282</div><div class="line">283</div><div class="line">284</div><div class="line">285</div><div class="line">286</div><div class="line">287</div><div class="line">288</div><div class="line">289</div><div class="line">290</div><div class="line">291</div><div class="line">292</div><div class="line">293</div><div class="line">294</div><div class="line">295</div><div class="line">296</div><div class="line">297</div><div class="line">298</div><div class="line">299</div><div class="line">300</div><div class="line">301</div><div class="line">302</div><div class="line">303</div><div class="line">304</div><div class="line">305</div><div class="line">306</div><div class="line">307</div><div class="line">308</div><div class="line">309</div><div class="line">310</div><div class="line">311</div><div class="line">312</div><div class="line">313</div><div class="line">314</div><div class="line">315</div><div class="line">316</div><div class="line">317</div><div class="line">318</div><div class="line">319</div><div class="line">320</div><div class="line">321</div><div class="line">322</div><div class="line">323</div><div class="line">324</div><div class="line">325</div><div class="line">326</div><div class="line">327</div><div class="line">328</div><div class="line">329</div><div class="line">330</div><div class="line">331</div><div class="line">332</div><div class="line">333</div><div class="line">334</div><div class="line">335</div><div class="line">336</div><div class="line">337</div><div class="line">338</div><div class="line">339</div><div class="line">340</div><div class="line">341</div><div class="line">342</div><div class="line">343</div><div class="line">344</div><div class="line">345</div><div class="line">346</div><div class="line">347</div><div class="line">348</div><div class="line">349</div><div class="line">350</div><div class="line">351</div><div class="line">352</div><div class="line">353</div><div class="line">354</div><div class="line">355</div><div class="line">356</div><div class="line">357</div><div class="line">358</div><div class="line">359</div><div class="line">360</div><div class="line">361</div><div class="line">362</div><div class="line">363</div><div class="line">364</div><div class="line">365</div><div class="line">366</div><div class="line">367</div><div class="line">368</div><div class="line">369</div><div class="line">370</div><div class="line">371</div><div class="line">372</div><div class="line">373</div><div class="line">374</div><div class="line">375</div><div class="line">376</div><div class="line">377</div><div class="line">378</div><div class="line">379</div><div class="line">380</div><div class="line">381</div><div class="line">382</div><div class="line">383</div><div class="line">384</div><div class="line">385</div><div class="line">386</div><div class="line">387</div><div class="line">388</div><div class="line">389</div><div class="line">390</div><div class="line">391</div><div class="line">392</div><div class="line">393</div><div class="line">394</div><div class="line">395</div><div class="line">396</div><div class="line">397</div><div class="line">398</div><div class="line">399</div><div class="line">400</div><div class="line">401</div><div class="line">402</div><div class="line">403</div><div class="line">404</div><div class="line">405</div><div class="line">406</div><div class="line">407</div><div class="line">408</div><div class="line">409</div><div class="line">410</div><div class="line">411</div><div class="line">412</div><div class="line">413</div><div class="line">414</div><div class="line">415</div><div class="line">416</div><div class="line">417</div><div class="line">418</div><div class="line">419</div><div class="line">420</div><div class="line">421</div><div class="line">422</div><div class="line">423</div><div class="line">424</div><div class="line">425</div><div class="line">426</div><div class="line">427</div><div class="line">428</div><div class="line">429</div><div class="line">430</div><div class="line">431</div><div class="line">432</div><div class="line">433</div><div class="line">434</div><div class="line">435</div><div class="line">436</div><div class="line">437</div><div class="line">438</div><div class="line">439</div><div class="line">440</div><div class="line">441</div><div class="line">442</div><div class="line">443</div><div class="line">444</div><div class="line">445</div><div class="line">446</div><div class="line">447</div><div class="line">448</div><div class="line">449</div><div class="line">450</div><div class="line">451</div><div class="line">452</div><div class="line">453</div><div class="line">454</div><div class="line">455</div><div class="line">456</div><div class="line">457</div><div class="line">458</div><div class="line">459</div><div class="line">460</div><div class="line">461</div><div class="line">462</div><div class="line">463</div><div class="line">464</div><div class="line">465</div><div class="line">466</div><div class="line">467</div><div class="line">468</div><div class="line">469</div><div class="line">470</div><div class="line">471</div><div class="line">472</div><div class="line">473</div><div class="line">474</div><div class="line">475</div><div class="line">476</div><div class="line">477</div><div class="line">478</div><div class="line">479</div><div class="line">480</div><div class="line">481</div><div class="line">482</div><div class="line">483</div><div class="line">484</div><div class="line">485</div><div class="line">486</div><div class="line">487</div><div class="line">488</div><div class="line">489</div><div class="line">490</div><div class="line">491</div><div class="line">492</div><div class="line">493</div><div class="line">494</div><div class="line">495</div><div class="line">496</div><div class="line">497</div><div class="line">498</div><div class="line">499</div><div class="line">500</div><div class="line">501</div><div class="line">502</div><div class="line">503</div><div class="line">504</div><div class="line">505</div><div class="line">506</div><div class="line">507</div><div class="line">508</div><div class="line">509</div><div class="line">510</div><div class="line">511</div><div class="line">512</div><div class="line">513</div><div class="line">514</div><div class="line">515</div><div class="line">516</div><div class="line">517</div><div class="line">518</div><div class="line">519</div><div class="line">520</div><div class="line">521</div><div class="line">522</div><div class="line">523</div><div class="line">524</div><div class="line">525</div><div class="line">526</div><div class="line">527</div><div class="line">528</div><div class="line">529</div><div class="line">530</div><div class="line">531</div><div class="line">532</div><div class="line">533</div><div class="line">534</div><div class="line">535</div><div class="line">536</div><div class="line">537</div><div class="line">538</div><div class="line">539</div><div class="line">540</div><div class="line">541</div><div class="line">542</div><div class="line">543</div><div class="line">544</div><div class="line">545</div><div class="line">546</div><div class="line">547</div><div class="line">548</div><div class="line">549</div><div class="line">550</div><div class="line">551</div><div class="line">552</div><div class="line">553</div><div class="line">554</div><div class="line">555</div><div class="line">556</div><div class="line">557</div><div class="line">558</div><div class="line">559</div><div class="line">560</div><div class="line">561</div><div class="line">562</div><div class="line">563</div><div class="line">564</div><div class="line">565</div><div class="line">566</div><div class="line">567</div><div class="line">568</div><div class="line">569</div><div class="line">570</div><div class="line">571</div><div class="line">572</div><div class="line">573</div><div class="line">574</div><div class="line">575</div><div class="line">576</div><div class="line">577</div><div class="line">578</div><div class="line">579</div><div class="line">580</div><div class="line">581</div><div class="line">582</div><div class="line">583</div><div class="line">584</div><div class="line">585</div><div class="line">586</div><div class="line">587</div><div class="line">588</div><div class="line">589</div><div class="line">590</div><div class="line">591</div><div class="line">592</div><div class="line">593</div><div class="line">594</div><div class="line">595</div><div class="line">596</div><div class="line">597</div><div class="line">598</div><div class="line">599</div><div class="line">600</div><div class="line">601</div><div class="line">602</div><div class="line">603</div><div class="line">604</div><div class="line">605</div><div class="line">606</div><div class="line">607</div><div class="line">608</div><div class="line">609</div><div class="line">610</div><div class="line">611</div><div class="line">612</div><div class="line">613</div><div class="line">614</div><div class="line">615</div><div class="line">616</div><div class="line">617</div><div class="line">618</div><div class="line">619</div><div class="line">620</div><div class="line">621</div><div class="line">622</div><div class="line">623</div><div class="line">624</div><div class="line">625</div><div class="line">626</div><div class="line">627</div><div class="line">628</div><div class="line">629</div><div class="line">630</div><div class="line">631</div><div class="line">632</div><div class="line">633</div><div class="line">634</div><div class="line">635</div><div class="line">636</div><div class="line">637</div><div class="line">638</div><div class="line">639</div><div class="line">640</div><div class="line">641</div><div class="line">642</div><div class="line">643</div><div class="line">644</div><div class="line">645</div><div class="line">646</div><div class="line">647</div><div class="line">648</div><div class="line">649</div><div class="line">650</div><div class="line">651</div><div class="line">652</div><div class="line">653</div><div class="line">654</div><div class="line">655</div><div class="line">656</div><div class="line">657</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 工厂模式 (将具体实例化具体的代码抽离或封装,组织为产品和产品族)</div><div class="line"> * 产品:  汽车,电脑,手机</div><div class="line"> * 产品族: 汽车零件也能是各个厂商,汽车生产厂家不能所有都是自己生产</div><div class="line"> * 通过工厂(高层组件)组织产品(低层组件)或产品族 统一入口请求和返回,</div><div class="line"> * 产品和创建者相对独立也可以说是两者都是平级关系,创建者依赖抽象产品</div><div class="line"> *</div><div class="line"> * 抽象工厂: 提供一个接口,用于创建相关或依赖对象的产品家族而不需要明确指定具体类</div><div class="line"> * 工厂方法: 定义类一个创建对象的接口,有子类决定实例化哪一个.工厂方法让类实力化推迟到子类</div><div class="line"> * 要点:</div><div class="line"> * 1.所有的工厂都是用来封装对象的创建</div><div class="line"> * 2.简单工厂,不是真正的设计模式,但仍不失为一个简单的方法,可以将客户程序解耦</div><div class="line"> * 3.工厂方法使用继承: 把对象的创建委托给子类,子类实现工厂方法来创建对象</div><div class="line"> * 4.抽象工厂使用对象组合:对象的创建被实现在工厂方法来创建对象</div><div class="line"> * 5.所有工厂模式都通过减少应用程序和具体类之间的依赖促进松耦合</div><div class="line"> * 6.工厂方法允许类实力化到子类进行</div><div class="line"> * 7.抽象工厂创建相关的对象家族,不需要依赖它们具体类</div><div class="line"> * 8.依赖倒置原则,指导我们避免依赖具体类型,而尽量依赖抽象</div><div class="line"> * 9.工厂是很有威力的技巧,帮助我们针对抽象编程,而不是具体类编程</div><div class="line"> *</div><div class="line"> *场景介绍: 还是继续游戏吧(本游戏纯属虚构，如有雷同，纯属巧合)</div><div class="line"> * 创建不同的种类的人物,不同工厂负责创建不同角色,不同角色拥有不同的武器和技能</div><div class="line"> *</div><div class="line"> */</div><div class="line">public class FactoryPattern &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String args[])&#123;</div><div class="line">        System.out.println(&quot;-------------------simpleFactoryDemo-----------------------------&quot;);</div><div class="line">        /**</div><div class="line">         * 简单工厂模式</div><div class="line">         * 基本实现人物和工厂之间松耦合,面向抽象编程</div><div class="line">         * */</div><div class="line">       simpleFactoryDemo();</div><div class="line"></div><div class="line"></div><div class="line">        System.out.println(&quot;-------------------factoryMethodDemo-----------------------------&quot;);</div><div class="line">        /**</div><div class="line">         * 工厂方法</div><div class="line">         * 如果游戏的人物会在不同游戏中出现,在不同游戏中人物的属性也是不一样的</div><div class="line">         * 下面我们使用工厂方法来实现(定义类一个创建对象的接口,有子类决定实例化哪一个.工厂方法让类实力化推迟到子类)</div><div class="line">         * **/</div><div class="line">       factoryMethodDemo();</div><div class="line"></div><div class="line">        System.out.println(&quot;-------------------abstractFactoryDemo-----------------------------&quot;);</div><div class="line">        /**</div><div class="line">         * 抽象工厂</div><div class="line">         * 我们上面创建的角色,只体现了角色本身属性,没有装备属性,下面我们一起来给人物装备上吧</div><div class="line">         * 提供一个接口,用于创建相关或依赖对象的产品家族而不需要明确指定具体类</div><div class="line">         * 1.需要定义一个人物装备接口,创建不同装备</div><div class="line">         * 2.GameRoleMan 加上装备属性</div><div class="line">         *</div><div class="line">         * **/</div><div class="line">        abstractFactoryDemo();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    /**</div><div class="line">     * 简单工厂模式</div><div class="line">     * 基本实现人物和工厂之间松耦合,面向抽象编程</div><div class="line">     * */</div><div class="line">    public static void simpleFactoryDemo()&#123;</div><div class="line"></div><div class="line">        SimpleFactory simpleFactory = new SimpleFactory();</div><div class="line">        SimpleFactoryGameRoleManStore simpleFactoryGameRoleManStore = new SimpleFactoryGameRoleManStore(simpleFactory);</div><div class="line">        GameRoleMan gameRoleManAngels = simpleFactoryGameRoleManStore.getGameRoleMan(&quot;Angels&quot;);</div><div class="line">        GameRoleMan gameRoleManKing = simpleFactoryGameRoleManStore.getGameRoleMan(&quot;King&quot;);</div><div class="line"></div><div class="line">        gameRoleManAngels.show();</div><div class="line">        gameRoleManKing.show();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 工厂方法</div><div class="line">     * 如果游戏的人物会在不同游戏中出现,在不同游戏中人物的属性也是不一样的</div><div class="line">     * 下面我们使用工厂方法来实现(定义类一个创建对象的接口,有子类决定实例化哪一个.工厂方法让类实力化推迟到子类)</div><div class="line">     * **/</div><div class="line">    public static void factoryMethodDemo()&#123;</div><div class="line"></div><div class="line">        //英雄联盟</div><div class="line">        FactoryMethodGameRoleManStore yxlm = new   YXLM();</div><div class="line">        //蜀山传奇</div><div class="line">        FactoryMethodGameRoleManStore sscq = new SSCQ();</div><div class="line"></div><div class="line">        GameRoleMan gameRoleMan = yxlm.getGameRoleMan(&quot;Angels&quot;);</div><div class="line">        gameRoleMan.show();</div><div class="line">        gameRoleMan = sscq.getGameRoleMan(&quot;Angels&quot;);</div><div class="line">        gameRoleMan.show();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 抽象工厂</div><div class="line">     * 我们上面创建的角色,只体现了角色本身属性,没有装备属性,下面我们一起来给人物装备上吧</div><div class="line">     * 提供一个接口,用于创建相关或依赖对象的产品家族而不需要明确指定具体类</div><div class="line">     * 1.需要定义一个人物装备接口,创建不同装备</div><div class="line">     * 2.GameRoleMan 加上装备属性</div><div class="line">     * **/</div><div class="line">    public static void abstractFactoryDemo()&#123;</div><div class="line"></div><div class="line">        //蜀山传奇</div><div class="line">        FactoryMethodGameRoleManStore sscq = new SSCQ();</div><div class="line"></div><div class="line">        GameRoleMan gameRoleMan = sscq.getGameRoleMan(&quot;DemonEqi&quot;);</div><div class="line">        gameRoleMan.show();</div><div class="line">        gameRoleMan = sscq.getGameRoleMan(&quot;KingEqi&quot;);</div><div class="line">        gameRoleMan.show();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">//人物创建工厂</div><div class="line">/**</div><div class="line"> * 1.简单工厂模式</div><div class="line"> * **/</div><div class="line">class SimpleFactory&#123;</div><div class="line"></div><div class="line"></div><div class="line">    public  GameRoleMan createRoleMan(String type)&#123;</div><div class="line">        GameRoleMan gameRoleMan;</div><div class="line">        switch (type)&#123;</div><div class="line">            case &quot;King&quot;:</div><div class="line">                gameRoleMan = new GameKing();</div><div class="line">                break;</div><div class="line">            case &quot;Angels&quot;:</div><div class="line">                gameRoleMan = new GameAngels();</div><div class="line">                break;</div><div class="line">            case &quot;Demon&quot;:</div><div class="line">                gameRoleMan = new GameDemon();</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                throw new NullPointerException(&quot;没有选择的角色&quot;);</div><div class="line">        &#125;</div><div class="line">        return gameRoleMan;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 简单工厂游戏角色人物储备</div><div class="line"> * */</div><div class="line"> class SimpleFactoryGameRoleManStore&#123;</div><div class="line"></div><div class="line">    SimpleFactory simpleFactory;</div><div class="line"></div><div class="line">    public SimpleFactoryGameRoleManStore(SimpleFactory simpleFactory)&#123;</div><div class="line">       this.simpleFactory = simpleFactory;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 不管最终游戏角色创建,这里只是负责展示</div><div class="line">     * */</div><div class="line">    public GameRoleMan getGameRoleMan(String type)&#123;</div><div class="line">         GameRoleMan gameRoleMan = simpleFactory.createRoleMan(type);</div><div class="line">         return gameRoleMan;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 工厂方法游戏角色人物储备</div><div class="line"> * 不同人物在不同游戏中展示方式</div><div class="line"> * */</div><div class="line"> abstract  class  FactoryMethodGameRoleManStore&#123;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 不管最终游戏角色创建,这里只是负责返回</div><div class="line">     * */</div><div class="line">    public GameRoleMan getGameRoleMan(String type)&#123;</div><div class="line">        GameRoleMan gameRoleMan = createRoleMan(type);</div><div class="line">        return gameRoleMan;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">   protected abstract GameRoleMan createRoleMan(String type);</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 英雄联盟</div><div class="line"> * */</div><div class="line">class YXLM extends FactoryMethodGameRoleManStore&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected GameRoleMan createRoleMan(String type) &#123;</div><div class="line">        GameRoleMan gameRoleMan;</div><div class="line">        switch (type)&#123;</div><div class="line">            case &quot;King&quot;:</div><div class="line">                gameRoleMan = new YXLMGameKing();</div><div class="line">                break;</div><div class="line">            case &quot;Angels&quot;:</div><div class="line">                gameRoleMan = new YXLMGameAngels();</div><div class="line">                break;</div><div class="line">            case &quot;Demon&quot;:</div><div class="line">                gameRoleMan = new YXLMGameDemon();</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                throw new NullPointerException(&quot;没有选择的角色&quot;);</div><div class="line">        &#125;</div><div class="line">        return gameRoleMan;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 蜀山传奇</div><div class="line"> * */</div><div class="line">class SSCQ extends FactoryMethodGameRoleManStore&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    protected GameRoleMan createRoleMan(String type) &#123;</div><div class="line">        GameRoleMan gameRoleMan;</div><div class="line">        GameRoleManEquipmentFactory gameRoleManEquipmentFactory;</div><div class="line">        switch (type)&#123;</div><div class="line">            case &quot;King&quot;:</div><div class="line">                gameRoleMan = new SSCQGameKing();</div><div class="line">                break;</div><div class="line">            //带装备的国王</div><div class="line">            case &quot;KingEqi&quot;:</div><div class="line">                gameRoleManEquipmentFactory = new GameRoleManEquipmentFactorySSCQKing();</div><div class="line">                gameRoleMan = new SSCQGameKing(gameRoleManEquipmentFactory);</div><div class="line">                break;</div><div class="line">            case &quot;Angels&quot;:</div><div class="line">                gameRoleMan = new SSCQGameAngels();</div><div class="line">                break;</div><div class="line">            case &quot;Demon&quot;:</div><div class="line">                 gameRoleMan = new SSCQGameDemon();</div><div class="line">                break;</div><div class="line">            //带装备的恶魔</div><div class="line">            case &quot;DemonEqi&quot;:</div><div class="line">                gameRoleManEquipmentFactory = new GameRoleManEquipmentFactorySSCQDemon();</div><div class="line">                gameRoleMan = new SSCQGameDemon(gameRoleManEquipmentFactory);</div><div class="line">                break;</div><div class="line">            default:</div><div class="line">                throw new NullPointerException(&quot;没有选择的角色&quot;);</div><div class="line">        &#125;</div><div class="line">        return gameRoleMan;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 游戏角色装备</div><div class="line"> * */</div><div class="line">interface GameRoleManEquipment&#123;</div><div class="line"></div><div class="line">  GameRoleManWeapon getGameRoleManWeapon();</div><div class="line">  GameRoleManDefense getGameRoleManDefense();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//装备工厂</div><div class="line">abstract class GameRoleManEquipmentFactory&#123;</div><div class="line"></div><div class="line">     GameRoleManEquipment gameRoleManEquipment;</div><div class="line">     public GameRoleManEquipment gameRoleManEquipment()&#123;</div><div class="line">         gameRoleManEquipment = createEquipment();</div><div class="line">         return gameRoleManEquipment;</div><div class="line">     &#125;</div><div class="line">    abstract  GameRoleManEquipment createEquipment();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//演示例子中 只演示蜀山传奇(SSCQ) 国王</div><div class="line">class GameRoleManEquipmentFactorySSCQKing extends GameRoleManEquipmentFactory implements GameRoleManEquipment&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    GameRoleManEquipment createEquipment() &#123;</div><div class="line">        return this;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public GameRoleManWeapon getGameRoleManWeapon() &#123;</div><div class="line">        return    new GameRoleManWeaponKnife();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public GameRoleManDefense getGameRoleManDefense() &#123;</div><div class="line">        return new GameRoleManDefenseClothes();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//演示例子中 只演示蜀山传奇(SSCQ) 恶魔</div><div class="line">class GameRoleManEquipmentFactorySSCQDemon extends GameRoleManEquipmentFactory implements GameRoleManEquipment&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    GameRoleManEquipment createEquipment() &#123;</div><div class="line">        return this;</div><div class="line">    &#125;</div><div class="line">    @Override</div><div class="line">    public GameRoleManWeapon getGameRoleManWeapon() &#123;</div><div class="line">        return    new GameRoleManWeaponSword();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public GameRoleManDefense getGameRoleManDefense() &#123;</div><div class="line">        return new GameRoleManDefenseRing();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 游戏武器</div><div class="line"> * */</div><div class="line">interface GameRoleManWeapon&#123;</div><div class="line"></div><div class="line"></div><div class="line">    //攻击</div><div class="line">    int getAtk();</div><div class="line"></div><div class="line">    //武器名称</div><div class="line">    String getName();</div><div class="line"></div><div class="line">    String describe();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 游戏武器 刀</div><div class="line"> * */</div><div class="line">class GameRoleManWeaponKnife implements GameRoleManWeapon&#123;</div><div class="line">    @Override</div><div class="line">    public int getAtk() &#123;</div><div class="line">        return 1000;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getName() &#123;</div><div class="line">        return &quot;金丝大环刀&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String describe() &#123;</div><div class="line">        return getName()+&quot;攻击力&quot;+getAtk()+&quot;; 消铁如泥的宝刀&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 游戏武器 剑</div><div class="line"> * */</div><div class="line">class GameRoleManWeaponSword  implements GameRoleManWeapon&#123;</div><div class="line">    @Override</div><div class="line">    public int getAtk() &#123;</div><div class="line">        return 87973;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getName() &#123;</div><div class="line">        return &quot;大宝剑&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String describe() &#123;</div><div class="line">        return getName()+&quot;攻击力:&quot;+getAtk()+&quot;; 大宝剑很是强悍呀&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/***</div><div class="line"> * 游戏防御</div><div class="line"> * */</div><div class="line">interface GameRoleManDefense&#123;</div><div class="line"></div><div class="line"></div><div class="line">    //防御力</div><div class="line">    int getDefense();</div><div class="line"></div><div class="line">    //防御名称</div><div class="line">    String getName();</div><div class="line"></div><div class="line">    String describe();</div><div class="line">&#125;</div><div class="line"></div><div class="line">/***</div><div class="line"> * 游戏防御 衣服</div><div class="line"> * */</div><div class="line">class GameRoleManDefenseClothes implements GameRoleManDefense&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public int getDefense() &#123;</div><div class="line">        return 2123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getName() &#123;</div><div class="line">        return &quot;金丝铠甲&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String describe() &#123;</div><div class="line">        return getName()+&quot; 防御力:&quot;+getDefense()+&quot; 很不错的衣服 &quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/***</div><div class="line"> * 游戏防御 鞋子</div><div class="line"> * */</div><div class="line">class GameRoleManDefenseShoes implements GameRoleManDefense&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public int getDefense() &#123;</div><div class="line">        return 200;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getName() &#123;</div><div class="line">        return &quot;风靴&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String describe() &#123;</div><div class="line">        return getName()+&quot; 防御力:&quot;+getDefense()+&quot; 穿上会很快 &quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/***</div><div class="line"> * 游戏防御 戒指</div><div class="line"> * */</div><div class="line">class GameRoleManDefenseRing implements GameRoleManDefense&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public int getDefense() &#123;</div><div class="line">        return 200;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String getName() &#123;</div><div class="line">        return &quot;魔戒&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String describe() &#123;</div><div class="line">        return getName()+&quot; 防御力:&quot;+getDefense()+&quot; 带上后可以变身恶魔 &quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 游戏人物基类</div><div class="line"> *</div><div class="line"> * */</div><div class="line">abstract class GameRoleMan&#123;</div><div class="line"></div><div class="line">    //攻击武器</div><div class="line">    GameRoleManWeapon gameRoleManWeapon;</div><div class="line"></div><div class="line">    //防御武器</div><div class="line">    GameRoleManDefense  gameRoleManDefense;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    public void GameRoleMan(String gameRoleMan, int atk) &#123;</div><div class="line">        this.gameRoleMan = gameRoleMan;</div><div class="line">        this.atk = atk;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    private String gameRoleMan;</div><div class="line"></div><div class="line">    protected int atk;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 角色技能</div><div class="line">     * */</div><div class="line">   public abstract Object ability();</div><div class="line"></div><div class="line"></div><div class="line">    //最终展示</div><div class="line">    public void show()&#123;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">        System.out.println(&quot;角色名称:&quot;+gameRoleMan+&quot;,拥有技能&quot;+ability()+&quot;;攻击力&quot;+atk);</div><div class="line"></div><div class="line">        if(gameRoleManWeapon!=null)&#123;</div><div class="line">            System.out.println(gameRoleManWeapon.describe());</div><div class="line">        &#125;</div><div class="line">        if(gameRoleManDefense!=null)&#123;</div><div class="line">            System.out.println(gameRoleManDefense.describe());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 国王</div><div class="line"> * */</div><div class="line">class GameKing extends GameRoleMan&#123;</div><div class="line"></div><div class="line"></div><div class="line">    public GameKing()&#123;</div><div class="line">       this.GameRoleMan(&quot;国王&quot;,100);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line">        return &quot;我是国王,我会发冲击波&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 天使</div><div class="line"> * */</div><div class="line">class GameAngels extends GameRoleMan&#123;</div><div class="line"></div><div class="line"></div><div class="line">    public GameAngels()&#123;</div><div class="line">        this.GameRoleMan(&quot;天使&quot;,120);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line">        return &quot;我是天使,我会飞&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 恶魔</div><div class="line"> * */</div><div class="line">class GameDemon extends GameRoleMan&#123;</div><div class="line"></div><div class="line"></div><div class="line">    public GameDemon()&#123;</div><div class="line">        this.GameRoleMan(&quot;恶魔&quot;,130);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line">        return &quot;我是恶魔,我会打人&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 国王</div><div class="line"> * */</div><div class="line">class YXLMGameKing extends GameRoleMan&#123;</div><div class="line"></div><div class="line"></div><div class="line">    public YXLMGameKing()&#123;</div><div class="line">        this.GameRoleMan(&quot;英雄联盟国王&quot;,100);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line">        return &quot;我是英雄联盟国王,我会发冲击波&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 天使</div><div class="line"> * */</div><div class="line">class YXLMGameAngels extends GameRoleMan&#123;</div><div class="line"></div><div class="line"></div><div class="line">    public YXLMGameAngels()&#123;</div><div class="line">        this.GameRoleMan(&quot;英雄联盟天使&quot;,120);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line">        return &quot;我是英雄联盟天使,我会飞&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 恶魔</div><div class="line"> * */</div><div class="line">class YXLMGameDemon extends GameRoleMan&#123;</div><div class="line"></div><div class="line"></div><div class="line">    public YXLMGameDemon()&#123;</div><div class="line">        this.GameRoleMan(&quot;英雄联盟恶魔&quot;,130);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line">        return &quot;我是英雄联盟恶魔,我会打人&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 国王</div><div class="line"> * */</div><div class="line">class SSCQGameKing extends GameRoleMan&#123;</div><div class="line">    GameRoleManEquipmentFactory gameRoleManEquipmentFactory;</div><div class="line">    public SSCQGameKing(GameRoleManEquipmentFactory gameRoleManEquipmentFactory)&#123;</div><div class="line"></div><div class="line">        this.GameRoleMan(&quot;蜀山传奇国王&quot;,100);</div><div class="line">        this.gameRoleManEquipmentFactory= gameRoleManEquipmentFactory;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public SSCQGameKing()&#123;</div><div class="line">        this.GameRoleMan(&quot;蜀山传奇国王&quot;,100);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line">        GameRoleManEquipment gameRoleManEquipment=  gameRoleManEquipmentFactory.gameRoleManEquipment();</div><div class="line">        this.gameRoleManDefense = gameRoleManEquipment.getGameRoleManDefense();</div><div class="line">        this.gameRoleManWeapon = gameRoleManEquipment.getGameRoleManWeapon();</div><div class="line">        this.atk =  gameRoleManWeapon.getAtk()+atk;</div><div class="line">        return &quot;我是蜀山传奇国王,我会发冲击波&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 天使</div><div class="line"> * */</div><div class="line">class SSCQGameAngels extends GameRoleMan&#123;</div><div class="line"></div><div class="line"></div><div class="line">    public SSCQGameAngels()&#123;</div><div class="line">        this.GameRoleMan(&quot;蜀山传奇天使&quot;,120);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line">        return &quot;我是蜀山传奇天使,我会飞&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 恶魔</div><div class="line"> * */</div><div class="line">class SSCQGameDemon extends GameRoleMan&#123;</div><div class="line"></div><div class="line">    GameRoleManEquipmentFactory gameRoleManEquipmentFactory;</div><div class="line"></div><div class="line">    public SSCQGameDemon(GameRoleManEquipmentFactory gameRoleManEquipmentFactory)&#123;</div><div class="line">        this.GameRoleMan(&quot;蜀山传奇恶魔&quot;,130);</div><div class="line">        this.gameRoleManEquipmentFactory= gameRoleManEquipmentFactory;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public SSCQGameDemon()&#123;</div><div class="line">        this.GameRoleMan(&quot;蜀山传奇恶魔&quot;,130);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    @Override</div><div class="line">    public  Object ability() &#123;</div><div class="line"></div><div class="line">        GameRoleManEquipment gameRoleManEquipment=  gameRoleManEquipmentFactory.gameRoleManEquipment();</div><div class="line">        this.gameRoleManDefense = gameRoleManEquipment.getGameRoleManDefense();</div><div class="line">        this.gameRoleManWeapon = gameRoleManEquipment.getGameRoleManWeapon();</div><div class="line">         this.atk =atk+ gameRoleManWeapon.getAtk();</div><div class="line">        return &quot;我是蜀山传奇恶魔,我会打人&quot;;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/10/设计模式工厂-不解释/" data-id="cj1yap0qt000n045rsq0mwe74" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="clean-blog-设计模式观察模式-不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/10/设计模式观察模式-不解释/" class="article-date">
+  <time datetime="2017-03-10T09:08:36.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/10/设计模式观察模式-不解释/">设计模式观察模式-不解释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="观察模式-有时被称作发布-订阅模式，观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己"><a href="#观察模式-有时被称作发布-订阅模式，观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己" class="headerlink" title="观察模式　有时被称作发布/订阅模式，观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己"></a>观察模式　有时被称作发布/订阅模式，观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态发生变化时，会通知所有观察者对象，使它们能够自动更新自己</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div><div class="line">229</div><div class="line">230</div><div class="line">231</div><div class="line">232</div><div class="line">233</div><div class="line">234</div><div class="line">235</div><div class="line">236</div><div class="line">237</div><div class="line">238</div><div class="line">239</div><div class="line">240</div><div class="line">241</div><div class="line">242</div><div class="line">243</div><div class="line">244</div><div class="line">245</div><div class="line">246</div><div class="line">247</div><div class="line">248</div><div class="line">249</div><div class="line">250</div><div class="line">251</div><div class="line">252</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">import java.util.Vector;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 观察模式(java 内部提供  java.util.Observable,java.util.Observer)</div><div class="line"> * 当前demo中手动实现</div><div class="line"> * 实现场景需求: 用户订制消息主题 一个用户可以订制多主题</div><div class="line"> */</div><div class="line">public class ObservePattren &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String args[]) &#123;</div><div class="line"></div><div class="line"></div><div class="line">        //用户注册消息</div><div class="line">        UserRegisterMsgSubject userRegisterMsgSubject = new UserRegisterMsgSubject();</div><div class="line"></div><div class="line">        //系统消息</div><div class="line">        SystemMsgSubject systemMsgSubject = new SystemMsgSubject();</div><div class="line"></div><div class="line">        //创建观察者</div><div class="line">        AdministratorObserve administratorObserve = new AdministratorObserve(userRegisterMsgSubject);</div><div class="line">        systemMsgSubject.addObserver(administratorObserve);</div><div class="line"></div><div class="line">        EmployeeObserve employeeObserve = new EmployeeObserve(userRegisterMsgSubject);</div><div class="line">        systemMsgSubject.addObserver(employeeObserve);</div><div class="line"></div><div class="line">        //广播通知</div><div class="line">        userRegisterMsgSubject.setUserRegisterMsgSubject(&quot;张铁锤&quot;,&quot;129.12.1.21:9999&quot;,&quot;123456&quot;);</div><div class="line">        //系统消息</div><div class="line">        systemMsgSubject.setSystemMsgSubject(&quot;数据中心&quot;,&quot;您好,这是一个系统消息&quot;);</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">interface Observe &#123;</div><div class="line">    void update(MsgSubject o, Object arg);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 管理员类型</div><div class="line"> */</div><div class="line">class AdministratorObserve implements Observe &#123;</div><div class="line"></div><div class="line">    private MsgSubject subject;</div><div class="line"></div><div class="line">    public AdministratorObserve(MsgSubject subject) &#123;</div><div class="line">        this.subject = subject;</div><div class="line">        subject.addObserver(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void update(MsgSubject o, Object arg) &#123;</div><div class="line"></div><div class="line">        if (o instanceof UserRegisterMsgSubject) &#123;</div><div class="line">            UserRegisterMsgSubject userRegisterMsgSubject = (UserRegisterMsgSubject) o;</div><div class="line">            System.out.println(&quot;我是管理员==&gt;&quot;+userRegisterMsgSubject.subjectName()+&quot;==&gt;&quot;+userRegisterMsgSubject.getIp() + &quot;==&quot; + userRegisterMsgSubject.getUserName() + &quot;===&quot; + userRegisterMsgSubject.getPw());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (o instanceof SystemMsgSubject) &#123;</div><div class="line">            SystemMsgSubject systemMsgSubject = (SystemMsgSubject) o;</div><div class="line">            System.out.println(&quot;我是管理员==&gt;&quot;+systemMsgSubject.getSystemName()+&quot;==&gt;&quot;+arg);</div><div class="line">         &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 员工类型</div><div class="line"> */</div><div class="line">class  EmployeeObserve implements Observe &#123;</div><div class="line"></div><div class="line">    private MsgSubject subject;</div><div class="line"></div><div class="line">    public EmployeeObserve(MsgSubject subject) &#123;</div><div class="line">        this.subject = subject;</div><div class="line">        subject.addObserver(this);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void update(MsgSubject o, Object arg) &#123;</div><div class="line"></div><div class="line">        if (o instanceof UserRegisterMsgSubject) &#123;</div><div class="line">            UserRegisterMsgSubject userRegisterMsgSubject = (UserRegisterMsgSubject) o;</div><div class="line">            System.out.println(&quot;我是普通员工==&gt;&quot;+userRegisterMsgSubject.subjectName()+&quot;==&gt;&quot;+userRegisterMsgSubject.getIp() + &quot;==&quot; + userRegisterMsgSubject.getUserName() + &quot;===&quot; + userRegisterMsgSubject.getPw());</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (o instanceof SystemMsgSubject) &#123;</div><div class="line">            SystemMsgSubject systemMsgSubject = (SystemMsgSubject) o;</div><div class="line">            System.out.println(&quot;我是普通员工==&gt;&quot;+systemMsgSubject.getSystemName()+&quot;==&gt;&quot;+arg);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 用户注册消息</div><div class="line"> */</div><div class="line">class UserRegisterMsgSubject extends MsgSubject &#123;</div><div class="line"></div><div class="line">    private String userName;</div><div class="line">    private String ip;</div><div class="line">    private String pw;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String subjectName() &#123;</div><div class="line">        return &quot;用户注册消息&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public UserRegisterMsgSubject() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public void notifyChange() &#123;</div><div class="line">        setChanged();</div><div class="line">        notifyObserve();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public void setUserRegisterMsgSubject(String userName, String ip, String pw) &#123;</div><div class="line">        this.userName = userName;</div><div class="line">        this.ip = ip;</div><div class="line">        this.pw = pw;</div><div class="line">        notifyChange();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public String getUserName() &#123;</div><div class="line">        return userName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getIp() &#123;</div><div class="line">        return ip;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getPw() &#123;</div><div class="line">        return pw;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 系统消息</div><div class="line"> */</div><div class="line">class SystemMsgSubject extends MsgSubject &#123;</div><div class="line"></div><div class="line"></div><div class="line">    private String systemName;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public String subjectName() &#123;</div><div class="line">        return &quot;系统消息&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public SystemMsgSubject() &#123;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public void notifyChange(String msg) &#123;</div><div class="line">        setChanged();</div><div class="line">        notifyObservers(msg);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public void setSystemMsgSubject(String systemName,String msg) &#123;</div><div class="line">        this.systemName = systemName;</div><div class="line">        notifyChange(msg);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public String getSystemName() &#123;</div><div class="line">        return systemName;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 消息主题</div><div class="line"> */</div><div class="line">abstract class MsgSubject &#123;</div><div class="line"></div><div class="line"></div><div class="line">    private boolean changed = false;</div><div class="line">    private Vector&lt;Observe&gt; obs;</div><div class="line"></div><div class="line">    //必须要实现消息名称</div><div class="line">    abstract String subjectName();</div><div class="line"></div><div class="line">    public MsgSubject() &#123;</div><div class="line">        obs = new Vector&lt;&gt;();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    protected void addObserver(Observe o) &#123;</div><div class="line"></div><div class="line">        if (o == null) &#123;</div><div class="line">            throw new NullPointerException();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        if (!obs.contains(o)) &#123;</div><div class="line">            obs.add(o);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 删除观察者</div><div class="line">     **/</div><div class="line">    protected void deleteObserve(Observe o) &#123;</div><div class="line">        obs.removeElement(o);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 通知观察者消息(不传入参数)</div><div class="line">     */</div><div class="line">    protected void notifyObserve() &#123;</div><div class="line">        notifyObservers(null);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 通知观察者消息</div><div class="line">     */</div><div class="line">    protected void notifyObservers(Object arg) &#123;</div><div class="line"></div><div class="line">        Object[] arrLocal = null;</div><div class="line">        if (!changed)</div><div class="line">            return;</div><div class="line">        arrLocal = obs.toArray();</div><div class="line">        clearChanged();</div><div class="line">        for (int i = arrLocal.length - 1; i &gt;= 0; i--) &#123;</div><div class="line">            ((Observe) arrLocal[i]).update(this, arg);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    protected void setChanged() &#123;</div><div class="line">        changed = true;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    protected void clearChanged() &#123;</div><div class="line">        changed = false;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/10/设计模式观察模式-不解释/" data-id="cj1yap0r1000w045rzow0rmki" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="clean-blog-设计模式单件模式-不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/10/设计模式单件模式-不解释/" class="article-date">
+  <time datetime="2017-03-10T09:07:35.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/10/设计模式单件模式-不解释/">设计模式单件模式-不解释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="单件模式-确保一个类只有一个实例-并提供一个全局访问点-最简单-使用枚举-enum"><a href="#单件模式-确保一个类只有一个实例-并提供一个全局访问点-最简单-使用枚举-enum" class="headerlink" title="单件模式(确保一个类只有一个实例,并提供一个全局访问点),最简单: 使用枚举(enum)"></a>单件模式(确保一个类只有一个实例,并提供一个全局访问点),最简单: 使用枚举(enum)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 单件模式(确保一个类只有一个实例,并提供一个全局访问点),最简单: 使用枚举(enum)</div><div class="line"> */</div><div class="line">public class   SingletonPattern &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        System.out.println( EnumSingletonPattern.INSTANCE.methodB());</div><div class="line">        System.out.println( EnumSingletonPattern.INSTANCE.methodA());</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 强烈推荐使用枚举,非常食用...食用</div><div class="line"> * 线程安全、防反射攻击、防止序列化生成新的实例</div><div class="line"> * */</div><div class="line">enum EnumSingletonPattern&#123;</div><div class="line"></div><div class="line">    INSTANCE&#123;</div><div class="line">        @Override</div><div class="line">        protected String methodA() &#123;</div><div class="line">            return &quot;methodA&quot;;</div><div class="line">        &#125;</div><div class="line">    &#125;;</div><div class="line"></div><div class="line">    public String methodB()&#123;</div><div class="line">        return &quot;methodB&quot;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    protected abstract String methodA();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 最简单的单件模式</div><div class="line"> * */</div><div class="line">class SimpleSingletonPattern&#123;</div><div class="line"></div><div class="line">    //饿</div><div class="line">    private static SimpleSingletonPattern uniqueInstance = new SimpleSingletonPattern();</div><div class="line"></div><div class="line">    //懒</div><div class="line">    private static SimpleSingletonPattern uniqueInstance2 =null;</div><div class="line"></div><div class="line">    //枚举实现</div><div class="line">    private static enum Singleton&#123;</div><div class="line">        INSTANCE;</div><div class="line"></div><div class="line">        private SimpleSingletonPattern simpleSingletonPattern;</div><div class="line">        private Singleton()&#123;</div><div class="line">            simpleSingletonPattern = new SimpleSingletonPattern();</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        public SimpleSingletonPattern getInstance()&#123;</div><div class="line">            return simpleSingletonPattern;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    private SimpleSingletonPattern()&#123;&#125;</div><div class="line"></div><div class="line">    public static SimpleSingletonPattern getInstance()&#123;</div><div class="line"></div><div class="line">        //懒</div><div class="line">        //uniqueInstance2 = new SimpleSingletonPattern();</div><div class="line"></div><div class="line">        //枚举</div><div class="line">       // Singleton.INSTANCE.getInstance();</div><div class="line"></div><div class="line">        //饿</div><div class="line">        return uniqueInstance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 双重检查加锁</div><div class="line"> * jdk版本 &gt;= 5</div><div class="line"> * */</div><div class="line">class DoubleCheckedSingletonPattern&#123;</div><div class="line"></div><div class="line">    //懒</div><div class="line">    //volatile 内存共享,多线程访问</div><div class="line">    private volatile static DoubleCheckedSingletonPattern uniqueInstance;</div><div class="line"></div><div class="line"></div><div class="line">    private DoubleCheckedSingletonPattern()&#123;&#125;</div><div class="line"></div><div class="line">    public static DoubleCheckedSingletonPattern getInstance()&#123;</div><div class="line"></div><div class="line">        if(uniqueInstance == null)&#123;</div><div class="line">            synchronized (DoubleCheckedSingletonPattern.class)&#123;</div><div class="line">                if(uniqueInstance == null)&#123;</div><div class="line">                    uniqueInstance = new DoubleCheckedSingletonPattern();</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        return uniqueInstance;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/10/设计模式单件模式-不解释/" data-id="cj1yap0ql000d045r0xbrhp99" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="clean-blog-设计模式策略模式-不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/10/设计模式策略模式-不解释/" class="article-date">
+  <time datetime="2017-03-10T09:05:07.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/10/设计模式策略模式-不解释/">设计模式策略模式-不解释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="定义封装独立算法族-可以相互替换"><a href="#定义封装独立算法族-可以相互替换" class="headerlink" title="定义封装独立算法族,可以相互替换"></a>定义封装独立算法族,可以相互替换</h3><pre><code>
+
+/*
+ *策略模式(定义封装独立算法族,可以相互替换)
+ *定义不同算法
+ *不同的英雄使用不同的武器发起战争和逃跑
+ * 武器和逃跑可以理解为算法,基于组合实现可以动态修改英雄行为
+ */
+public class StrategyPattern {
+
+
+    public static void main(String args[]){
+        Hero hero  = new   IronMan();
+        hero.heroBehaviour();
+        //钢铁侠更换武器和逃跑套路(更换算法)
+        //更换逃跑行为
+        hero.setEscape(new UndergroundEscape());
+        //更好战争行为
+        hero.setWar(new HammerWar());
+        hero.heroBehaviour();
+    }
+
+
+}
+
+/**
+ * 战争
+ * */
+interface War{
+    void war();
+}
+
+/**
+ * 逃跑
+ * */
+interface Escape{
+    void escape();
+}
+
+class HammerWar implements War{
+
+    @Override
+    public void war() {
+     System.out.println(&quot; 铁锤&quot;);
+    }
+}
+
+class MissileWar implements  War{
+    @Override
+    public void war() {
+        System.out.println(&quot;导弹&quot;);
+    }
+}
+
+
+class NoWar implements  War{
+
+    @Override
+    public void war() {
+        System.out.println(&quot;我不是超人,我不会发起战争&quot;);
+    }
+}
+
+/**
+ * 飞走逃跑
+ * */
+class FlyEscape implements Escape{
+
+    @Override
+    public void escape() {
+        System.out.println(&quot;飞走&quot;);
+    }
+}
+
+
+/**
+ * 地下逃跑
+ * */
+class UndergroundEscape implements Escape{
+
+    @Override
+    public void escape() {
+        System.out.println(&quot;地下&quot;);
+    }
+}
+
+
+class NoEscape implements  Escape{
+
+    @Override
+    public void escape() {
+        System.out.println(&quot;我是不会逃跑的&quot;);
+    }
+}
+
+
+
+/**
+ *超类==&gt; 超人
+ * */
+abstract class Hero{
+
+    War war;
+    Escape escape;
+
+
+    public void war(){
+        war.war();
+    }
+
+    public void escape(){
+        escape.escape();
+    }
+
+    public void setWar(War war) {
+        this.war = war;
+    }
+
+    public void setEscape(Escape escape) {
+        this.escape = escape;
+    }
+
+    //英雄行为
+    abstract void heroBehaviour();
+
+}
+
+/**
+ * 钢铁侠
+ * */
+class IronMan extends Hero{
+
+    public IronMan() {
+        war = new MissileWar();
+        escape = new  FlyEscape();
+    }
+
+    @Override
+    void heroBehaviour() {
+        System.out.println(&quot;我是钢铁侠&quot;);
+        super.war();
+        super.escape();
+
+    }
+}
+
+
+/**
+ * 普通人
+ * */
+class OrdinaryMan extends Hero{
+
+    public OrdinaryMan() {
+        war = new NoWar();
+        escape = new NoEscape();
+    }
+
+    @Override
+    void heroBehaviour() {
+        System.out.println(&quot;我是普通人&quot;);
+        super.war();
+        super.escape();
+    }
+}
+</code></pre>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/10/设计模式策略模式-不解释/" data-id="cj1yap0qu000p045rlnnu7961" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="clean-blog-spring-boot-完成版本－不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/09/spring-boot-完成版本－不解释/" class="article-date">
+  <time datetime="2017-03-09T09:47:31.000Z" itemprop="datePublished">2017-03-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/09/spring-boot-完成版本－不解释/">spring-boot 完成版本－不解释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文为Spring-boot-完整版本，可用于基础开发"><a href="#本文为Spring-boot-完整版本，可用于基础开发" class="headerlink" title="本文为Spring-boot 完整版本，可用于基础开发"></a>本文为Spring-boot 完整版本，可用于基础开发</h2><h6 id="上一文中我们介绍了如何搭建sprign-boot-服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）"><a href="#上一文中我们介绍了如何搭建sprign-boot-服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）" class="headerlink" title="上一文中我们介绍了如何搭建sprign-boot 服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）"></a>上一文中我们介绍了如何搭建sprign-boot 服务，下面我们一起来搞出完整版本（以下是包含使用到的技术）</h6><ol>
+<li>Swagger2 是一个规范和完整的框架，用于生成、描述、调用和可视化 RESTful 风格的 Web 服务。总体目标是使客户端和文件系统作为服务器以同样的速度来更新。文件的方法，参数和模型紧密集成到服务器端的代码，允许API来始终保持同步。 </li>
+<li>Spring jap 已经实现了很多数据库操作相关功能，但是拼写SQL是个硬伤，当前项目中实现了一种方式，将 resources/dbsql下的 XXX.xml 映射到全局map中，下面会有详细介绍</li>
+</ol>
+<hr>
+<h4 id="项目源码-github源码地址"><a href="#项目源码-github源码地址" class="headerlink" title="项目源码:github源码地址"></a>项目源码:<a href="https://github.com/zccccccc/cici">github源码地址</a></h4><hr>
+<hr>
+<h4 id="Swagger2介绍-开始"><a href="#Swagger2介绍-开始" class="headerlink" title="Swagger2介绍 开始"></a>Swagger2介绍 开始</h4><p> <strong><em>pom.xml 添加</em></strong></p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"> </div><div class="line">&lt;dependency&gt;</div><div class="line">       &lt;groupId&gt;io.springfox&lt;/groupId&gt;</div><div class="line">       &lt;artifactId&gt;springfox-swagger2&lt;/artifactId&gt;</div><div class="line">       &lt;version&gt;2.2.2&lt;/version&gt;</div><div class="line">   &lt;/dependency&gt;</div><div class="line">   &lt;dependency&gt;</div><div class="line">       &lt;groupId&gt;io.springfox&lt;/groupId&gt;</div><div class="line">       &lt;artifactId&gt;springfox-swagger-ui&lt;/artifactId&gt;</div><div class="line">       &lt;version&gt;2.2.2&lt;/version&gt;</div><div class="line">   &lt;/dependency&gt;</div></pre></td></tr></table></figure>
+<p><strong><em>在MainApplication平级创建 Swagger2.java</em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@Configuration</div><div class="line">@EnableSwagger2</div><div class="line">public class Swagger2 &#123;</div><div class="line"></div><div class="line">    @Bean</div><div class="line">    public Docket createRestApi() &#123;</div><div class="line">        return new Docket(DocumentationType.SWAGGER_2)</div><div class="line">                .apiInfo(apiInfo())</div><div class="line">                .select()</div><div class="line">                .apis(RequestHandlerSelectors.basePackage(&quot;com.springboot.demo&quot;))</div><div class="line">                .paths(PathSelectors.any())</div><div class="line">                .build();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    private ApiInfo apiInfo() &#123;</div><div class="line"></div><div class="line"></div><div class="line">                return new ApiInfoBuilder()</div><div class="line">                .title(&quot;Spring Boot 中使用Swagger2构建RESTful APIs&quot;).version(&quot;2.0&quot;).build();</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><strong><em> API接口方法中加入下面注解，就可以了使用了，访问地址 <a href="http://localhost:7777" target="_blank" rel="external">http://localhost:7777</a> /swagger-ui.html 就可以访问了</em></strong>  </p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">@ApiOperation(value = &quot;获取用户列表&quot;, notes = &quot;需要传入json参数&quot;)</div><div class="line">@ApiImplicitParams(&#123;</div><div class="line">        @ApiImplicitParam(name = &quot;sysUserDomain&quot;, value = &quot;系统用户实体&quot;, required = true, dataType = &quot;SysUserDomain&quot;)</div><div class="line">&#125;)</div><div class="line">@ApiResponses(value = &#123;</div><div class="line">        @ApiResponse(code = 200, message = &quot;Success&quot;, response = BaseOutput.class),</div><div class="line">        @ApiResponse(code = 401, message = &quot;Unauthorized&quot;),</div><div class="line">        @ApiResponse(code = 403, message = &quot;Forbidden&quot;),</div><div class="line">        @ApiResponse(code = 404, message = &quot;Not Found&quot;),</div><div class="line">        @ApiResponse(code = 500, message = &quot;Failure&quot;)&#125;)</div><div class="line">@PostMapping(value = &quot;list&quot;)</div><div class="line">public BaseOutput&lt;SysUser&gt; list(HttpServletRequest request, HttpServletResponse response, @RequestBody SysUserDomain sysUserDomain) &#123;</div><div class="line">    BaseOutput&lt;SysUser&gt; baseOutput = null;</div><div class="line">    try &#123;</div><div class="line"></div><div class="line">        baseOutput = sysUserService.findList(sysUserDomain);</div><div class="line"></div><div class="line">    &#125; catch (Exception ex) &#123;</div><div class="line"></div><div class="line">        baseOutput = baseOutput == null ? (baseOutput = new BaseOutput&lt;SysUser&gt;()) : baseOutput;</div><div class="line">        baseOutput.setReturnCode(new ReturnCode(ReturnCodeDict.ERROR.k, ReturnCodeDict.ERROR.m, ex.getMessage()));</div><div class="line"></div><div class="line"></div><div class="line">    &#125; finally &#123;</div><div class="line">        return baseOutput;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<hr>
+<h4 id="将sql放到xml中，系统启动时候加载到各个模块中"><a href="#将sql放到xml中，系统启动时候加载到各个模块中" class="headerlink" title="将sql放到xml中，系统启动时候加载到各个模块中"></a>将sql放到xml中，系统启动时候加载到各个模块中</h4><p><strong><em> 在resources 下创建dbsql文件夹 里面包含各种sql的xml: namespace(具体使用实现类，获取sql时使用),version(版本控制后期会加入自动热部署) </em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</div><div class="line">&lt;db-sql&gt;</div><div class="line">&lt;mapper namespace=&quot;com.springboot.demo.usercenter.usermanager.serve.SysUserServiceImpl&quot; version=&quot;1.0&quot; &gt;</div><div class="line"></div><div class="line">    &lt;sql id=&quot;findListNativeSql&quot;&gt;</div><div class="line">        SELECT</div><div class="line">        distinct</div><div class="line">        XX.module_id,</div><div class="line">        XX.action_code,</div><div class="line">        XX.action_name,</div><div class="line">        ZZ.name module_name,</div><div class="line">        ZZ.url,</div><div class="line">        ZZ.order_id,</div><div class="line">        ZZ.module_desc,</div><div class="line">        ZZ.code module_code,</div><div class="line">        ZZ.parent_id</div><div class="line">        FROM SYS_PRIVILEGE XX,</div><div class="line">        SYS_MODULE ZZ</div><div class="line">        WHERE XX.module_id =ZZ.id</div><div class="line">        AND ZZ.enable_state=&apos;10&apos;</div><div class="line">        and exists</div><div class="line">        ( SELECT 1</div><div class="line">        FROM SYS_USER_AUTH AA,SYS_ROLE BB</div><div class="line">        WHERE AA.user_id =  ?1</div><div class="line">        AND AA.role_id = BB.id</div><div class="line">        AND BB.enable_state=&apos;10&apos;</div><div class="line">        and AA.role_id = XX.role_id</div><div class="line">        AND EXISTS</div><div class="line">        ( SELECT 1</div><div class="line">        FROM sys_system SS</div><div class="line">        WHERE SS.id = BB.sys_id</div><div class="line">        AND SS.code =  ?2 )</div><div class="line">        AND AA.role_id=BB.id)</div><div class="line">    &lt;/sql&gt;</div><div class="line"></div><div class="line">&lt;/mapper&gt;</div><div class="line">&lt;/db-sql&gt;</div></pre></td></tr></table></figure>
+<p><strong><em>读取XML并映射到HashMap中 创建LoadingSqlXml.java</em></strong></p>
+<p><strong><em> 完整版本 </em></strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">public enum LoadingSqlXml &#123;</div><div class="line"></div><div class="line">    INSTANCE;</div><div class="line"></div><div class="line">    //获取dbsql绝对路径</div><div class="line">    private final static String dbSqlPath = ClassUtils.getDefaultClassLoader().getResource(&quot;dbsql&quot;).getPath();</div><div class="line">    //定义私有SQLMap  XML中的namespace,version 该文件下的sql集合</div><div class="line">    private static final Map&lt;String, HashMap&lt;Double, HashMap&lt;String, String&gt;&gt;&gt; myHashMaps = new HashMap&lt;String, HashMap&lt;Double, HashMap&lt;String, String&gt;&gt;&gt;();</div><div class="line"></div><div class="line">    //定义私有SQLMap集合</div><div class="line">    private static HashMap sqlMap = null;</div><div class="line"></div><div class="line">    //定义版本集合</div><div class="line">    private static final HashMap&lt;Double, HashMap&lt;String, String&gt;&gt; versionMap = new HashMap();</div><div class="line"></div><div class="line"></div><div class="line">    //根据名称找到当前实现类下需要使用的SQL集合</div><div class="line">    //如:   private HashMap&lt;String, String&gt; dbSqlMap = LoadingSqlXml.INSTANCE.findSqlMap(this.getClass().getName());</div><div class="line">    //  dbSqlMap.get(&quot;sqlId&quot;);</div><div class="line">    public HashMap&lt;String, String&gt; findSqlMap(String c) &#123;</div><div class="line"></div><div class="line">        if (myHashMaps.isEmpty()) &#123;</div><div class="line">            try &#123;</div><div class="line">                init();</div><div class="line">            &#125; catch (Exception ex) &#123;</div><div class="line">                ex.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        HashMap&lt;String, String&gt; _h = null;</div><div class="line">        for (Map.Entry&lt;Double, HashMap&lt;String, String&gt;&gt; entry0 : myHashMaps.get(c).entrySet()) &#123;</div><div class="line">            _h = entry0.getValue();</div><div class="line">        &#125;</div><div class="line">        return _h;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //初始化执行</div><div class="line">    public void init() throws InitDataSqlReaderException, DocumentException &#123;</div><div class="line">        if (!myHashMaps.isEmpty()) &#123;</div><div class="line">            return;</div><div class="line">        &#125;</div><div class="line">        File file = new File(dbSqlPath);</div><div class="line">        File[] files = file.listFiles();</div><div class="line">        for (File f : files) &#123;</div><div class="line">            ReadDbSqlXml(f);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //读取文件XML并解析到 数据集合中</div><div class="line">    private void ReadDbSqlXml(File f) throws InitDataSqlReaderException, DocumentException &#123;</div><div class="line"></div><div class="line">        SAXReader reader = new SAXReader();</div><div class="line">        Document doc = reader.read(f);</div><div class="line">        Element root = doc.getRootElement();</div><div class="line">        Element fo;</div><div class="line">        Element value;</div><div class="line">        String fileName = f.getName();</div><div class="line"></div><div class="line">        //迭代器查看有几个</div><div class="line">        for (Iterator i = root.elementIterator(&quot;mapper&quot;); i.hasNext(); ) &#123;</div><div class="line"></div><div class="line">            fo = (Element) i.next();</div><div class="line"></div><div class="line">            List&lt;String&gt; attributes = fo.attributes();</div><div class="line">            if (attributes.size() == 0) &#123;</div><div class="line">                throw new InitDataSqlReaderException(fileName.concat(&quot; 在mapper节点找不到属性,请定义 [namespace,version] &quot;));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            String namespace = fo.attribute(&quot;namespace&quot;).getValue();</div><div class="line">            String version = fo.attribute(&quot;version&quot;).getValue();</div><div class="line"></div><div class="line">            if (StringUtils.isEmpty(namespace)) &#123;</div><div class="line">                throw new InitDataSqlReaderException(fileName.concat(&quot; 在mapper节点找不到属性,请定义 namespace &quot;));</div><div class="line">            &#125;</div><div class="line">            if (StringUtils.isEmpty(version)) &#123;</div><div class="line">                throw new InitDataSqlReaderException(fileName.concat(&quot; 在mapper节点找不到属性,请定义 version &quot;));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            if (myHashMaps.get(namespace) != null) &#123;</div><div class="line">                throw new InitDataSqlReaderException(fileName.concat(&quot; 在mapper节点 中的 namespace 定义重复 ==&gt;&quot; + namespace));</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            for (Iterator k = fo.elementIterator(&quot;sql&quot;); k.hasNext(); ) &#123;</div><div class="line">                sqlMap = new HashMap();</div><div class="line">                value = (Element) k.next();</div><div class="line">                String id = value.attribute(&quot;id&quot;).getValue();</div><div class="line"></div><div class="line">                if (id.equals(&quot;&quot;)) &#123;</div><div class="line">                    throw new InitDataSqlReaderException(fileName.concat(&quot;在mapper下sql未定义id&quot;));</div><div class="line">                &#125;</div><div class="line"></div><div class="line">                String sql = String.valueOf(value.getData());</div><div class="line">                if (sqlMap.get(id) == null) &#123;</div><div class="line">                    sqlMap.put(id, sql);</div><div class="line">                &#125; else &#123;</div><div class="line">                    throw new InitDataSqlReaderException(fileName.concat(&quot;sql 节点 ID 定义重复 当前ID=&quot; + id));</div><div class="line">                &#125;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">            versionMap.put(Double.parseDouble(version), sqlMap);</div><div class="line">            myHashMaps.put(namespace, versionMap);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<pre><code>*具体实现代码就不在这里展示了直接看源码吧，比较简单，目录结构 下载到源码后从com.springboot.demo.usercenter.usermanager.web.SysUserController 开始向上阅读*
+</code></pre><p>  <em>目前只是简单实现，后续会介绍完整版本 基于spring cloud 微服务架构整合</em></p>
+<hr>
+<h4 id="项目源码-github源码地址-1"><a href="#项目源码-github源码地址-1" class="headerlink" title="项目源码:github源码地址"></a>项目源码:<a href="https://github.com/zccccccc/cici">github源码地址</a></h4><hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/09/spring-boot-完成版本－不解释/" data-id="cj1yap0qd0005045rzm4v89pu" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="clean-blog-spring-boot-搭建-不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/06/spring-boot-搭建-不解释/" class="article-date">
+  <time datetime="2017-03-06T06:21:59.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/03/06/spring-boot-搭建-不解释/">spring-boot 搭建-不解释</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文为Spring-boot入门篇-老司机跳过"><a href="#本文为Spring-boot入门篇-老司机跳过" class="headerlink" title="本文为Spring-boot入门篇,老司机跳过"></a>本文为Spring-boot入门篇,老司机跳过</h2><ol>
+<li>服务创建</li>
+<li>RestAPI创建(配置文件)</li>
+<li>数据层（链接池）/服务层实现(事务，单表更新级查询)/整合接口服务</li>
+</ol>
+<blockquote>
+<p><strong> 知识准备。 </strong><br> spring boot 基于 maven创建，如果不熟悉请先学习<a href="http://www.yiibai.com/maven/" target="_blank" rel="external">maven 教程</a>  </p>
+</blockquote>
+<hr>
+<h4 id="项目源码-github源码地址"><a href="#项目源码-github源码地址" class="headerlink" title="项目源码:github源码地址"></a>项目源码:<a href="https://github.com/zccccccc/cici">github源码地址</a></h4><hr>
+<h3 id="1-创建maven-web项目-如果选择-springBoot模版创建速度非常慢，个人感觉直接创建比较简单"><a href="#1-创建maven-web项目-如果选择-springBoot模版创建速度非常慢，个人感觉直接创建比较简单" class="headerlink" title="1.创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建比较简单)"></a>1.创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建比较简单)</h3><ul>
+<li><p>创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建比较)<br>修改pom.xml,添加springboot依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">     &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">     &lt;version&gt;1.4.1.RELEASE&lt;/version&gt;</div><div class="line"> &lt;/parent&gt;</div><div class="line"></div><div class="line"> &lt;dependencies&gt;</div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</div><div class="line">         &lt;scope&gt;test&lt;/scope&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</div><div class="line">         &lt;version&gt;3.0&lt;/version&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;com.oracle&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;ojdbc14&lt;/artifactId&gt;</div><div class="line">         &lt;version&gt;10.2.0.4.0&lt;/version&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;druid&lt;/artifactId&gt;</div><div class="line">         &lt;version&gt;1.0.18&lt;/version&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line"></div><div class="line"> &lt;/dependencies&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>创建启动入口文件 运行main方法，服务搭建就OK啦</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">  @SpringBootApplication</div><div class="line">public class MainApp extends WebMvcConfigurerAdapter &#123;</div><div class="line"></div><div class="line">    //第一种</div><div class="line">    //1 cd  当前项目根目录下</div><div class="line">    //1 mvn spring-boot:run</div><div class="line"></div><div class="line">    //第二种</div><div class="line">    //2 cd  当前项目根目录下</div><div class="line">    //2. mvn install</div><div class="line">    //2.  cd target/</div><div class="line">    //2. java -jar cici-log.jar</div><div class="line"></div><div class="line">    //第三种</div><div class="line">    //直接运行main方法</div><div class="line"></div><div class="line">    //启动时候选择配置文件启动</div><div class="line">    //3 application.yml application-dev.yml application-pro.yml</div><div class="line">    //3. mvn install</div><div class="line">    //3.  cd target/</div><div class="line">    //3. java -jar cici-log.jar -spring.profies.active=pro</div><div class="line"></div><div class="line">    //后台启动</div><div class="line">    /**</div><div class="line">     *  nohup java -jar cici-log.jar &amp;</div><div class="line">     *  nohup java -jar cici-log.jar  /dev/null 2&gt;&amp;1 &amp;</div><div class="line">     *</div><div class="line">     * */</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        SpringApplication.run(MainApplation.class,args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-RestAPI创建"><a href="#2-RestAPI创建" class="headerlink" title="2.RestAPI创建"></a>2.RestAPI创建</h3><p>   创建服务接口包括post/put/get/delete<br>   创建 SysUserController.java<br>   添加注解</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@RestController</div><div class="line">@RequestMapping(&quot;/api/sysUser&quot;)</div></pre></td></tr></table></figure>
+<p>   完整服务接口代码</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">@RestController</div><div class="line">@RequestMapping(&quot;/api/sysUser&quot;)</div><div class="line">public class SysUserController &#123;</div><div class="line"></div><div class="line">    @GetMapping(value = &quot;list&quot;)</div><div class="line">    public List&lt;CatUser&gt; catalog()&#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //获取数据</div><div class="line">    @GetMapping(value = &quot;update/&#123;id&#125;&quot;)</div><div class="line">    public CatUser get(@PathVariable(&quot;id&quot;)String id)&#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //新增</div><div class="line">    @PostMapping(value = &quot;update&quot;)</div><div class="line">    public Object add(@RequestBody Object c)&#123;</div><div class="line"></div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //更新</div><div class="line">    @PutMapping(value = &quot;update&quot;)</div><div class="line">    public CatUser update(@RequestBody CatUser c)&#123;</div><div class="line"></div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //删除</div><div class="line">    @DeleteMapping(value = &quot;update/&#123;id&#125;&quot;)</div><div class="line">    public void add(@PathVariable(&quot;id&quot;)String id)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-数据层-服务层实现（事务，链接池）"><a href="#3-数据层-服务层实现（事务，链接池）" class="headerlink" title="3. 数据层/服务层实现（事务，链接池）"></a>3. 数据层/服务层实现（事务，链接池）</h3><p>  当我们接口服务创建完成后开始创建服务层数据层代码</p>
+<h4 id="1-配置文件-spring-boot-推荐使用-yml-配置，此方法少去很多冗余字段"><a href="#1-配置文件-spring-boot-推荐使用-yml-配置，此方法少去很多冗余字段" class="headerlink" title="1. 配置文件 spring boot 推荐使用.yml 配置，此方法少去很多冗余字段"></a>1. 配置文件 spring boot 推荐使用.yml 配置，此方法少去很多冗余字段</h4><h4 id="2-我们创建-application-yml"><a href="#2-我们创建-application-yml" class="headerlink" title="2. 我们创建 application.yml"></a>2. 我们创建 application.yml</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">spring:</div><div class="line">  profiles:</div><div class="line">    active: dev</div><div class="line">  jpa:</div><div class="line">     hibernate:</div><div class="line">       ddl-auto: none</div><div class="line">     show-sql: true</div></pre></td></tr></table></figure>
+<ul>
+<li>spring.profiles.active: dev 读取配置文件为 application-dev.yml 的配置文件,目前用于测试环境和生   产环境配置分类 </li>
+<li><p>jpa.hibernate.ddl-auto:  会根据绑定的实体(@Entity)生成 ,建议使用 none</p>
+<pre><code>+ validate   加载hibernate时，验证创建数据库表结构
++ create      每次加载hibernate，重新创建数据库表结构，这就是导致数据库表数据丢失的原因。
++ create-drop  加载hibernate时创建，退出是删除表结构
++ update        加载hibernate自动更新数据库结构
+</code></pre></li>
+<li>jpa.hibernate.show-sql: true 显示sql </li>
+</ul>
+<h4 id="3-创建数据库配置-application-dev-yml"><a href="#3-创建数据库配置-application-dev-yml" class="headerlink" title="3. 创建数据库配置 application-dev.yml"></a>3. 创建数据库配置 application-dev.yml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">server:</div><div class="line">    port: 7777</div><div class="line">spring:</div><div class="line">  datasource:</div><div class="line">      driver-class-name: oracle.jdbc.driver.OracleDriver</div><div class="line">      url: jdbc:oracle:thin:@172.25.13.98:1521:data98</div><div class="line">      username: HHZY_TEST</div><div class="line">      password: HHZY_TEST</div><div class="line">      type: com.alibaba.druid.pool.DruidDataSource</div><div class="line">      spring.datasource.initialSize: 5</div><div class="line">      spring.datasource.minIdle: 5</div><div class="line">      spring.datasource.maxActive: 20</div><div class="line">      spring.datasource.maxWait: 60000</div><div class="line">      timeBetweenEvictionRunsMillis: 60000</div><div class="line">      minEvictableIdleTimeMillis: 300000</div><div class="line">      validationQuery: SELECT 1 FROM DUAL</div><div class="line">      testWhileIdle: true</div><div class="line">      testOnBorrow: false</div><div class="line">      testOnReturn: false</div><div class="line">      poolPreparedStatements: true</div><div class="line">      maxPoolPreparedStatementPerConnectionSize: 20</div><div class="line">      filters: stat,wall,log4j</div><div class="line">      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000</div><div class="line">      useGlobalDataSourceStat: true</div><div class="line">logging.level.root: DEBUG</div><div class="line">logging.level.org.springframework.web: DEBUG</div><div class="line">logging.level.org.hibernate: DEBUG</div></pre></td></tr></table></figure>
+<ul>
+<li>server.port: 7777 为当前服务端口</li>
+</ul>
+<ul>
+<li>spring.datasource 数据库连接配置当前使用连接池的是 <a href="https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%88%97%E8%A1%A8">DruidDataSource</a><ul>
+<li>创建 druid 访问<a href="http://localhost:7777/druid/index.html" target="_blank" rel="external">http://localhost:7777/druid/index.html</a></li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@SuppressWarnings(&quot;serial&quot;)</div><div class="line">@WebServlet(urlPatterns = &quot;/druid/*&quot;,  initParams = &#123;</div><div class="line">                @WebInitParam(name = &quot;allow&quot;, value = &quot;127.0.0.1&quot;),// IP白名单 (没有配置或者为空，则允许所有访问)</div><div class="line">                @WebInitParam(name = &quot;deny&quot;, value = &quot;192.168.16.111&quot;),// IP黑名单 (存在共同时，deny优先于allow)</div><div class="line">                @WebInitParam(name = &quot;loginUsername&quot;, value = &quot;zc&quot;),// 用户名</div><div class="line">                @WebInitParam(name = &quot;loginPassword&quot;, value = &quot;zc&quot;),// 密码</div><div class="line">                @WebInitParam(name = &quot;resetEnable&quot;, value = &quot;false&quot;)// 禁用HTML页面上的“Reset All”功能</div><div class="line">        &#125;)</div><div class="line">public class DruidStatViewServlet extends StatViewServlet &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>创建druid 过滤器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">   @WebFilter(filterName = &quot;druidWebStatFilter&quot;, urlPatterns = &quot;/*&quot;,</div><div class="line">        initParams = &#123;</div><div class="line">                @WebInitParam(name = &quot;exclusions&quot;, value = &quot;*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*&quot;)// 忽略资源</div><div class="line">        &#125;)</div><div class="line">public class DruidStatFilter extends WebStatFilter &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-创建数据模型"><a href="#4-创建数据模型" class="headerlink" title="4. 创建数据模型"></a>4. 创建数据模型</h4><p>   创建实体类添加数据注解（@Entity）<br>   SysUser.java<br>   非完整代码</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@Entity</div><div class="line">public class SysUser extends BaseDomain &#123;</div><div class="line"></div><div class="line">   private String id;</div><div class="line">   ...</div><div class="line">   ...</div></pre></td></tr></table></figure>
+<h4 id="5-创建服务层-事务，单表更新级查询-及数据访问层"><a href="#5-创建服务层-事务，单表更新级查询-及数据访问层" class="headerlink" title="5. 创建服务层(事务，单表更新级查询)及数据访问层"></a>5. 创建服务层(事务，单表更新级查询)及数据访问层</h4><p>   创建数据库层接口 SysUserRepository.java 继承 JpaRepository<sysuser(当前对象),string(当前对象主键id)>  </sysuser(当前对象),string(当前对象主键id)></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">public interface SysUserRepository  extends JpaRepository&lt;SysUser,String&gt; &#123; &#125;</div></pre></td></tr></table></figure>
+<p>   创建服务层类 SysUserService.java (新增修改删除查询，不用写sql)</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">   @Service</div><div class="line">public class SysUserService &#123;</div><div class="line"></div><div class="line">    private final Logger logger = LoggerFactory.getLogger(this.getClass());</div><div class="line"></div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    private SysUserRepository sysUserRepository;</div><div class="line"></div><div class="line"></div><div class="line">    public List&lt;SysUser&gt; findAll() &#123;</div><div class="line">        return sysUserRepository.findAll();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public SysUser update(SysUser sysUser) &#123;</div><div class="line"></div><div class="line">        if (StringUtils.isEmpty(sysUser.getId())) &#123;</div><div class="line">            sysUser.setId(&quot;ID存在更新,否则新增&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        logger.debug(&quot;新增了用户&quot;);</div><div class="line">        return sysUserRepository.saveAndFlush(sysUser);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public void delete(String id) &#123;</div><div class="line">        logger.debug(&quot;删除了用户&quot;);</div><div class="line">         sysUserRepository.delete(id);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public SysUser findOne(String id) &#123;</div><div class="line">        return sysUserRepository.findOne(id);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="6-控制层调用"><a href="#6-控制层调用" class="headerlink" title="6. 控制层调用"></a>6. 控制层调用</h4><p>  创建SysUserController.java </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  </div><div class="line">//系统用户管理</div><div class="line">@RestController</div><div class="line">@RequestMapping(&quot;/api/sysUser&quot;)</div><div class="line">public class SysUserController &#123;</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    SysUserService sysUserService;</div><div class="line"></div><div class="line">    @GetMapping(value = &quot;list&quot;)</div><div class="line">    public List&lt;SysUser&gt; list()&#123;</div><div class="line">        return sysUserService.findAll();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //获取数据</div><div class="line">    @GetMapping(value = &quot;update/&#123;id&#125;&quot;)</div><div class="line">    public SysUser get(@PathVariable(&quot;id&quot;)String id)&#123;</div><div class="line">        return sysUserService.findOne(id);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //新增</div><div class="line">    @PostMapping(value = &quot;update&quot;)</div><div class="line">    public Object add(@RequestBody SysUser c)&#123;</div><div class="line">        return sysUserService.update(c);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //更新</div><div class="line">    @PutMapping(value = &quot;update&quot;)</div><div class="line">    public SysUser update(@RequestBody SysUser c)&#123;</div><div class="line">        return sysUserService.update(c);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //删除</div><div class="line">    @DeleteMapping(value = &quot;update/&#123;id&#125;&quot;)</div><div class="line">    public void add(@PathVariable(&quot;id&quot;)String id)&#123;</div><div class="line">        sysUserService.delete(id);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  到目前为止，我们实现了对单表的增删改查所有操作，没有写一句sql，下面我们将添加复杂sql查询，以及最终版本入门框架搭建</p>
+<h3 id="后续会介绍整体架构，可以应用于项目开发"><a href="#后续会介绍整体架构，可以应用于项目开发" class="headerlink" title="后续会介绍整体架构，可以应用于项目开发"></a>后续会介绍整体架构，可以应用于项目开发</h3><hr>
+<h4 id="项目源码-github源码地址-1"><a href="#项目源码-github源码地址-1" class="headerlink" title="项目源码:github源码地址"></a>项目源码:<a href="https://github.com/zccccccc/cici">github源码地址</a></h4><hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/06/spring-boot-搭建-不解释/" data-id="cj1yap0qh0008045r5nuvq9zo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="crontab-crontab-定时任务" class="article article-type-crontab" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/13/crontab-定时任务/" class="article-date">
+  <time datetime="2017-02-13T06:43:34.000Z" itemprop="datePublished">2017-02-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/13/crontab-定时任务/">crontab 定时任务</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1 检查  crontab -l 是否安装</p>
+<p> 检查crond服务是否启动 service crond status</p>
+<p> 安装cron</p>
+<p><code>yum install vixie-cron</code></p>
+<p><code>yum install crontabs</code></p>
+<p>2.开始<br>crontab -e<br>测试每分钟打印到文件中<br><em>/1 </em> <em> </em> * date &gt;&gt; /tmp/log.txt</p>
+<p><code>crontab -l  可以查看crontab 任务</code></p>
+<p>查看日志</p>
+<p><code>/var/mail</code></p>
+<p>开机执行<br><code>@reboot 执行 xx.sh</code></p>
+<p>或者</p>
+<p><code>vim /etc/re.d/re.locate 执行  xx.sh</code></p>
+<p> &gt;<br><em>/1 </em> <em> </em> * date &gt;&gt; /tmp/log.txt</p>
+<ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li><ul>
+<li>COMMAND<br>分钟0–59  小时 0-23 日期 1-31 月份 1-12 星期 0-7</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>每晚 21:30 重启服务<br>30 21 <em> </em> *</p>
+<p>每月1 ，10 22 日 4:45 重启<br>45 4 1,10,22 <em> </em></p>
+<p>每月1到10日 4:45  重启<br>45 4 1-10 <em> </em></p>
+<p>每2分钟 重启<br><em>/2 </em> <em> </em> *</p>
+<p>1-59/2 <em> </em> <em> </em></p>
+<p>晚上11点到 早7点 每隔一小时重启<br>0 23-7/1 <em> </em> *</p>
+<p>每天 18:00 - 23:00 每30分钟<br>0,30 18-23 <em> </em> <em><br>0-59/30 18-23 </em> <em> </em><br> &gt;</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/02/13/crontab-定时任务/" data-id="cj1yap0q90003045rvadbnqak" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="jmeter-JMeter-测试工具-入门" class="article article-type-jmeter" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/13/JMeter-测试工具-入门/" class="article-date">
+  <time datetime="2017-02-13T03:00:17.000Z" itemprop="datePublished">2017-02-13</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/13/JMeter-测试工具-入门/">JMeter 测试工具 入门</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="说明-入门使用-："><a href="#说明-入门使用-：" class="headerlink" title="说明(入门使用)："></a>说明(入门使用)：</h3><ul>
+<li>jdk版本 1.7 </li>
+<li>下载 <a href="http://jmeter.apache.org/download_jmeter.cgi" target="_blank" rel="external">apache-jmeter</a> 版本随意 实例中使用的2.13</li>
+<li>Test Plan 执行计划  执行使用  测试使用 如：回放测试</li>
+<li>WorkBench 工作区域，准备使用，如：录制</li>
+<li>–启动 ./bin/jmeter.sh </li>
+</ul>
+<p>###下面开始自动话测试，录制 ＋ 回放</p>
+<p>#####创建线程组和控制器</p>
+<p> <img src="http://ol5i7ltje.bkt.clouddn.com/69124311-7331-472F-B9CB-19D667B74D7E.png" alt="1"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/76DDFAC0-EDB8-4378-A370-B0EAEBCABAEC.png" alt="2"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/A850D422-5CF4-40FD-8657-964B3A3DA5C0.png" alt="3"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/EB68A8DB-D06C-4B7C-806E-B0DDF988C9A2.png" alt="4"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/D1658BF8-BF4D-432F-B681-3403C4D0A1C1.png" alt="5"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/05067694-C406-4261-B40F-081A9CF60879.png" alt="6"></p>
+<p>#####选择目标控制器<br> <img src="http://ol5i7ltje.bkt.clouddn.com/E9F57B0D-DD8F-4DA9-8DD9-51C96A325669.png" alt="7"></p>
+<p>#####创建两个监听查询<br> <img src="http://ol5i7ltje.bkt.clouddn.com/041812CA-5FD8-486F-B77E-44B65E0B69FC.png" alt="8"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/43CEA00E-37B1-4DE0-A382-1E791A624BB4.png" alt="9"><br> <img src="http://ol5i7ltje.bkt.clouddn.com/9FC2876B-4DCF-4219-ACD7-31FDE6473981.png" alt="10"></p>
+<p>#####开始录制<br> <img src="http://ol5i7ltje.bkt.clouddn.com/B70872B0-209B-4F0A-BE8B-F8647B04DCF8.png" alt="10"></p>
+<p>#####已经开始录制了<br> <img src="http://ol5i7ltje.bkt.clouddn.com/5B221055-B544-468D-BD04-E434EC658201.png" alt="11"></p>
+<p>#####准备回放，停止录制<br> <img src="http://ol5i7ltje.bkt.clouddn.com/77BA9F59-AD43-480B-AACC-AC60E18D7EC6.png" alt="11"> </p>
+<p>#####开始回放<br>  <img src="http://ol5i7ltje.bkt.clouddn.com/D219EB49-D5DB-4C1C-B6C5-827A36B0A6DB.png" alt="11"> </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/02/13/JMeter-测试工具-入门/" data-id="cj1yap0q40001045rn25gmnm6" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="cache-适合多层级调转-各种子模块引用返回保留上一次查询记录" class="article article-type-cache" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/02/10/适合多层级调转-各种子模块引用返回保留上一次查询记录/" class="article-date">
+  <time datetime="2017-02-10T08:25:34.000Z" itemprop="datePublished">2017-02-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/02/10/适合多层级调转-各种子模块引用返回保留上一次查询记录/">适合多层级调转,各种子模块引用返回保留上一次查询记录</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>用于使用web系统中查询</p>
+<p><a href="http://ol5i7ltje.bkt.clouddn.com/data/git/packagecachecom.pagecache.zip" target="_blank" rel="external">源码下载com.pagecache.zip</a></p>
+<p>基于Spring APO 环绕通知实现</p>
+<p>1.添加配置文件<br>action-servlet.xml 最后添加</p>
+<p><import resource="spring-aop-settings.xml"><br>spring-aop-settings.xml  </import></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;</div><div class="line">xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;</div><div class="line">xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd&quot;&gt;</div><div class="line">&lt;aop:aspectj-autoproxy proxy-target-class=&quot;true&quot; /&gt;</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure>
+<p>2.修改代码(CacheAspectAdvice.java)<br>第28行 指定切入点控制层</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@Pointcut(&quot;execution(* com.*.web.*.*(..))&quot;)</div><div class="line"> public void CacheAspectAdvice() &#123;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>3.加入注解<br>在自定控制层入口,加入需要记忆和恢复的注解(@FieldCache)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@RequestMapping(value = &quot;/list.do&quot;)</div><div class="line">public ModelAndView list(HttpServletRequest request,@FieldCache SearchEntity domain)&#123;</div><div class="line">           ModelAndView modelAndView=new ModelAndView();</div><div class="line">           modelAndView.setViewName(&quot;list&quot;);</div><div class="line">           return  modelAndView;</div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<p>查询数据模型中,默认只会处理 String,Integer 两种类型<br>如果不需要记录属性上方加入 @FieldTransient</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">//这是个栗了</div><div class="line">public class SearchEntity extends BaseInput &#123;</div><div class="line">    @FieldTransient</div><div class="line">    private String searchName;</div><div class="line">    public String get/set...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果其他引用对象里面也要加入记录和恢复(@FieldCache)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//父类同样回记录,回迭代最终Object</div><div class="line">public class SearchEntity extends BaseInput &#123;</div><div class="line">    @FieldTransient</div><div class="line">    private String searchName;</div><div class="line">    @FieldCache</div><div class="line">    private Page page;</div><div class="line">    public String getSearchName...</div><div class="line">   public String getPage...</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>说明<br>1.从菜单进入需要加参数,会执行清空已经记录查询条件(pagCatchClean) 如:<a href="http://xxx/xxx.do?pagCatchClean" target="_blank" rel="external">http://xxx/xxx.do?pagCatchClean</a></p>
+<p>2.默认情况下 post 的请求记录,get 请求清空,如果post 情况下 也好恢复记录不记录 加参数(pageRecover) 如:<a href="http://xxx/xxx.do?pageRecover" target="_blank" rel="external">http://xxx/xxx.do?pageRecover</a></p>
+<p>3.缓存默认使用的本地,如果需要系统是负载(非hash)模式,需要 实现SearchObjectCache.java接口,存放到共享存储中(redis,mongodb….),<br>SearchObjectCacheManager.java 缓存管理类实现好后 修改 其SearchObjectCache引用即可</p>
+<p>ObjectCache.java 第34行开始</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  /**</div><div class="line">    * 清空缓存标记</div><div class="line">    * 在浏览器地址加入</div><div class="line">    * http://xxx/xxx.do?pagCatchClean</div><div class="line">    **/</div><div class="line">   public static String pagCatchClean = &quot;pageCacheClean&quot;;</div><div class="line">   public static String pagRecover = &quot;pageRecover&quot;;</div><div class="line">   Logger logger = Logger.getLogger(ObjectCache.class.getName());</div><div class="line">public void cacheManager(HttpServletRequest request, Object o) &#123;</div><div class="line">       String sessionId = request.getSession().getId();</div><div class="line">       String uri = request.getRequestURI();</div><div class="line">       if (null == uri || uri.equals(&quot;&quot;)) &#123;</div><div class="line">           return;</div><div class="line">       &#125;</div><div class="line">       if (uri.indexOf(&quot;?&quot;) &gt; 0) &#123;</div><div class="line">           uri = uri.substring(0, uri.indexOf(&quot;?&quot;));</div><div class="line">       &#125;</div><div class="line">       String cacheKey = uri.concat(sessionId);</div><div class="line">       boolean isClean = request.getParameter(pagCatchClean) == null ? false : true;</div><div class="line">       //空清空缓存</div><div class="line">       if (isClean) &#123;</div><div class="line">           SearainbowCacheManager.del(cacheKey);</div><div class="line">           logger.info(&quot;清空缓存 key==&gt; &quot; + cacheKey);</div><div class="line">           return;</div><div class="line">       &#125;</div><div class="line">       //post 查询 存储查询条件</div><div class="line">        if(request.getMethod().toUpperCase().equals(&quot;POST&quot;) &amp;&amp;  null == request.getParameter(pagRecover))&#123;</div><div class="line">            cache(sessionId, uri, isClean, o);</div><div class="line">        &#125;else &#123;</div><div class="line">            //get 或是其他 还原查询条件</div><div class="line">            recover(sessionId, uri, o);</div><div class="line">        &#125;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/02/10/适合多层级调转-各种子模块引用返回保留上一次查询记录/" data-id="cj1yap0r70010045rbhvjs3yw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><span class="page-number current">2</span>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/26/设计模式-状态模式/">设计模式-状态模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式迭代器－不解释/">设计模式迭代器－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式组合－不解释/">设计模式组合－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式模版方法－不解释/">设计模式模版方法－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/AES-加密MD5签名/">AES 加密MD5签名</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 张超<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>spring-boot 搭建-不解释 | 变者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文为Spring-boot入门篇,老司机跳过
+服务创建
+RestAPI创建(配置文件)
+数据层（链接池）/服务层实现(事务，单表更新级查询)/整合接口服务
+
+
+ 知识准备。  spring boot 基于 maven创建，如果不熟悉请先学习maven 教程  
+
+
+项目源码:github源码地址
+1.创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-boot 搭建-不解释">
+<meta property="og:url" content="https://github.com/zccccccc/2017/03/06/spring-boot-搭建-不解释/index.html">
+<meta property="og:site_name" content="变者">
+<meta property="og:description" content="本文为Spring-boot入门篇,老司机跳过
+服务创建
+RestAPI创建(配置文件)
+数据层（链接池）/服务层实现(事务，单表更新级查询)/整合接口服务
+
+
+ 知识准备。  spring boot 基于 maven创建，如果不熟悉请先学习maven 教程  
+
+
+项目源码:github源码地址
+1.创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建">
+<meta property="og:updated_time" content="2017-03-10T02:01:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-boot 搭建-不解释">
+<meta name="twitter:description" content="本文为Spring-boot入门篇,老司机跳过
+服务创建
+RestAPI创建(配置文件)
+数据层（链接池）/服务层实现(事务，单表更新级查询)/整合接口服务
+
+
+ 知识准备。  spring boot 基于 maven创建，如果不熟悉请先学习maven 教程  
+
+
+项目源码:github源码地址
+1.创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建">
+  
+    <link rel="alternate" href="/atom.xml" title="变者" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">变者</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/zccccccc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="clean-blog-spring-boot-搭建-不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/06/spring-boot-搭建-不解释/" class="article-date">
+  <time datetime="2017-03-06T06:21:59.000Z" itemprop="datePublished">2017-03-06</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      spring-boot 搭建-不解释
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本文为Spring-boot入门篇-老司机跳过"><a href="#本文为Spring-boot入门篇-老司机跳过" class="headerlink" title="本文为Spring-boot入门篇,老司机跳过"></a>本文为Spring-boot入门篇,老司机跳过</h2><ol>
+<li>服务创建</li>
+<li>RestAPI创建(配置文件)</li>
+<li>数据层（链接池）/服务层实现(事务，单表更新级查询)/整合接口服务</li>
+</ol>
+<blockquote>
+<p><strong> 知识准备。 </strong><br> spring boot 基于 maven创建，如果不熟悉请先学习<a href="http://www.yiibai.com/maven/" target="_blank" rel="external">maven 教程</a>  </p>
+</blockquote>
+<hr>
+<h4 id="项目源码-github源码地址"><a href="#项目源码-github源码地址" class="headerlink" title="项目源码:github源码地址"></a>项目源码:<a href="https://github.com/zccccccc/cici">github源码地址</a></h4><hr>
+<h3 id="1-创建maven-web项目-如果选择-springBoot模版创建速度非常慢，个人感觉直接创建比较简单"><a href="#1-创建maven-web项目-如果选择-springBoot模版创建速度非常慢，个人感觉直接创建比较简单" class="headerlink" title="1.创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建比较简单)"></a>1.创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建比较简单)</h3><ul>
+<li><p>创建maven web项目 (如果选择 springBoot模版创建速度非常慢，个人感觉直接创建比较)<br>修改pom.xml,添加springboot依赖</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div></pre></td><td class="code"><pre><div class="line">&lt;parent&gt;</div><div class="line">     &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">     &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;</div><div class="line">     &lt;version&gt;1.4.1.RELEASE&lt;/version&gt;</div><div class="line"> &lt;/parent&gt;</div><div class="line"></div><div class="line"> &lt;dependencies&gt;</div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;</div><div class="line">         &lt;scope&gt;test&lt;/scope&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;commons-lang3&lt;/artifactId&gt;</div><div class="line">         &lt;version&gt;3.0&lt;/version&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;com.oracle&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;ojdbc14&lt;/artifactId&gt;</div><div class="line">         &lt;version&gt;10.2.0.4.0&lt;/version&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line">     &lt;dependency&gt;</div><div class="line">         &lt;groupId&gt;com.alibaba&lt;/groupId&gt;</div><div class="line">         &lt;artifactId&gt;druid&lt;/artifactId&gt;</div><div class="line">         &lt;version&gt;1.0.18&lt;/version&gt;</div><div class="line">     &lt;/dependency&gt;</div><div class="line"></div><div class="line"></div><div class="line"> &lt;/dependencies&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li><p>创建启动入口文件 运行main方法，服务搭建就OK啦</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">  @SpringBootApplication</div><div class="line">public class MainApp extends WebMvcConfigurerAdapter &#123;</div><div class="line"></div><div class="line">    //第一种</div><div class="line">    //1 cd  当前项目根目录下</div><div class="line">    //1 mvn spring-boot:run</div><div class="line"></div><div class="line">    //第二种</div><div class="line">    //2 cd  当前项目根目录下</div><div class="line">    //2. mvn install</div><div class="line">    //2.  cd target/</div><div class="line">    //2. java -jar cici-log.jar</div><div class="line"></div><div class="line">    //第三种</div><div class="line">    //直接运行main方法</div><div class="line"></div><div class="line">    //启动时候选择配置文件启动</div><div class="line">    //3 application.yml application-dev.yml application-pro.yml</div><div class="line">    //3. mvn install</div><div class="line">    //3.  cd target/</div><div class="line">    //3. java -jar cici-log.jar -spring.profies.active=pro</div><div class="line"></div><div class="line">    //后台启动</div><div class="line">    /**</div><div class="line">     *  nohup java -jar cici-log.jar &amp;</div><div class="line">     *  nohup java -jar cici-log.jar  /dev/null 2&gt;&amp;1 &amp;</div><div class="line">     *</div><div class="line">     * */</div><div class="line">    public static void main(String[] args)&#123;</div><div class="line">        SpringApplication.run(MainApplation.class,args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="2-RestAPI创建"><a href="#2-RestAPI创建" class="headerlink" title="2.RestAPI创建"></a>2.RestAPI创建</h3><p>   创建服务接口包括post/put/get/delete<br>   创建 SysUserController.java<br>   添加注解</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">@RestController</div><div class="line">@RequestMapping(&quot;/api/sysUser&quot;)</div></pre></td></tr></table></figure>
+<p>   完整服务接口代码</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">@RestController</div><div class="line">@RequestMapping(&quot;/api/sysUser&quot;)</div><div class="line">public class SysUserController &#123;</div><div class="line"></div><div class="line">    @GetMapping(value = &quot;list&quot;)</div><div class="line">    public List&lt;CatUser&gt; catalog()&#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //获取数据</div><div class="line">    @GetMapping(value = &quot;update/&#123;id&#125;&quot;)</div><div class="line">    public CatUser get(@PathVariable(&quot;id&quot;)String id)&#123;</div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //新增</div><div class="line">    @PostMapping(value = &quot;update&quot;)</div><div class="line">    public Object add(@RequestBody Object c)&#123;</div><div class="line"></div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //更新</div><div class="line">    @PutMapping(value = &quot;update&quot;)</div><div class="line">    public CatUser update(@RequestBody CatUser c)&#123;</div><div class="line"></div><div class="line">        return null;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //删除</div><div class="line">    @DeleteMapping(value = &quot;update/&#123;id&#125;&quot;)</div><div class="line">    public void add(@PathVariable(&quot;id&quot;)String id)&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="3-数据层-服务层实现（事务，链接池）"><a href="#3-数据层-服务层实现（事务，链接池）" class="headerlink" title="3. 数据层/服务层实现（事务，链接池）"></a>3. 数据层/服务层实现（事务，链接池）</h3><p>  当我们接口服务创建完成后开始创建服务层数据层代码</p>
+<h4 id="1-配置文件-spring-boot-推荐使用-yml-配置，此方法少去很多冗余字段"><a href="#1-配置文件-spring-boot-推荐使用-yml-配置，此方法少去很多冗余字段" class="headerlink" title="1. 配置文件 spring boot 推荐使用.yml 配置，此方法少去很多冗余字段"></a>1. 配置文件 spring boot 推荐使用.yml 配置，此方法少去很多冗余字段</h4><h4 id="2-我们创建-application-yml"><a href="#2-我们创建-application-yml" class="headerlink" title="2. 我们创建 application.yml"></a>2. 我们创建 application.yml</h4> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">spring:</div><div class="line">  profiles:</div><div class="line">    active: dev</div><div class="line">  jpa:</div><div class="line">     hibernate:</div><div class="line">       ddl-auto: none</div><div class="line">     show-sql: true</div></pre></td></tr></table></figure>
+<ul>
+<li>spring.profiles.active: dev 读取配置文件为 application-dev.yml 的配置文件,目前用于测试环境和生   产环境配置分类 </li>
+<li><p>jpa.hibernate.ddl-auto:  会根据绑定的实体(@Entity)生成 ,建议使用 none</p>
+<pre><code>+ validate   加载hibernate时，验证创建数据库表结构
++ create      每次加载hibernate，重新创建数据库表结构，这就是导致数据库表数据丢失的原因。
++ create-drop  加载hibernate时创建，退出是删除表结构
++ update        加载hibernate自动更新数据库结构
+</code></pre></li>
+<li>jpa.hibernate.show-sql: true 显示sql </li>
+</ul>
+<h4 id="3-创建数据库配置-application-dev-yml"><a href="#3-创建数据库配置-application-dev-yml" class="headerlink" title="3. 创建数据库配置 application-dev.yml"></a>3. 创建数据库配置 application-dev.yml</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">server:</div><div class="line">    port: 7777</div><div class="line">spring:</div><div class="line">  datasource:</div><div class="line">      driver-class-name: oracle.jdbc.driver.OracleDriver</div><div class="line">      url: jdbc:oracle:thin:@172.25.13.98:1521:data98</div><div class="line">      username: HHZY_TEST</div><div class="line">      password: HHZY_TEST</div><div class="line">      type: com.alibaba.druid.pool.DruidDataSource</div><div class="line">      spring.datasource.initialSize: 5</div><div class="line">      spring.datasource.minIdle: 5</div><div class="line">      spring.datasource.maxActive: 20</div><div class="line">      spring.datasource.maxWait: 60000</div><div class="line">      timeBetweenEvictionRunsMillis: 60000</div><div class="line">      minEvictableIdleTimeMillis: 300000</div><div class="line">      validationQuery: SELECT 1 FROM DUAL</div><div class="line">      testWhileIdle: true</div><div class="line">      testOnBorrow: false</div><div class="line">      testOnReturn: false</div><div class="line">      poolPreparedStatements: true</div><div class="line">      maxPoolPreparedStatementPerConnectionSize: 20</div><div class="line">      filters: stat,wall,log4j</div><div class="line">      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000</div><div class="line">      useGlobalDataSourceStat: true</div><div class="line">logging.level.root: DEBUG</div><div class="line">logging.level.org.springframework.web: DEBUG</div><div class="line">logging.level.org.hibernate: DEBUG</div></pre></td></tr></table></figure>
+<ul>
+<li>server.port: 7777 为当前服务端口</li>
+</ul>
+<ul>
+<li>spring.datasource 数据库连接配置当前使用连接池的是 <a href="https://github.com/alibaba/druid/wiki/DruidDataSource%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7%E5%88%97%E8%A1%A8">DruidDataSource</a><ul>
+<li>创建 druid 访问<a href="http://localhost:7777/druid/index.html" target="_blank" rel="external">http://localhost:7777/druid/index.html</a></li>
+</ul>
+</li>
+</ul>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">@SuppressWarnings(&quot;serial&quot;)</div><div class="line">@WebServlet(urlPatterns = &quot;/druid/*&quot;,  initParams = &#123;</div><div class="line">                @WebInitParam(name = &quot;allow&quot;, value = &quot;127.0.0.1&quot;),// IP白名单 (没有配置或者为空，则允许所有访问)</div><div class="line">                @WebInitParam(name = &quot;deny&quot;, value = &quot;192.168.16.111&quot;),// IP黑名单 (存在共同时，deny优先于allow)</div><div class="line">                @WebInitParam(name = &quot;loginUsername&quot;, value = &quot;zc&quot;),// 用户名</div><div class="line">                @WebInitParam(name = &quot;loginPassword&quot;, value = &quot;zc&quot;),// 密码</div><div class="line">                @WebInitParam(name = &quot;resetEnable&quot;, value = &quot;false&quot;)// 禁用HTML页面上的“Reset All”功能</div><div class="line">        &#125;)</div><div class="line">public class DruidStatViewServlet extends StatViewServlet &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>创建druid 过滤器</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">   @WebFilter(filterName = &quot;druidWebStatFilter&quot;, urlPatterns = &quot;/*&quot;,</div><div class="line">        initParams = &#123;</div><div class="line">                @WebInitParam(name = &quot;exclusions&quot;, value = &quot;*.js,*.gif,*.jpg,*.bmp,*.png,*.css,*.ico,/druid/*&quot;)// 忽略资源</div><div class="line">        &#125;)</div><div class="line">public class DruidStatFilter extends WebStatFilter &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="4-创建数据模型"><a href="#4-创建数据模型" class="headerlink" title="4. 创建数据模型"></a>4. 创建数据模型</h4><p>   创建实体类添加数据注解（@Entity）<br>   SysUser.java<br>   非完整代码</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@Entity</div><div class="line">public class SysUser extends BaseDomain &#123;</div><div class="line"></div><div class="line">   private String id;</div><div class="line">   ...</div><div class="line">   ...</div></pre></td></tr></table></figure>
+<h4 id="5-创建服务层-事务，单表更新级查询-及数据访问层"><a href="#5-创建服务层-事务，单表更新级查询-及数据访问层" class="headerlink" title="5. 创建服务层(事务，单表更新级查询)及数据访问层"></a>5. 创建服务层(事务，单表更新级查询)及数据访问层</h4><p>   创建数据库层接口 SysUserRepository.java 继承 JpaRepository<sysuser(当前对象),string(当前对象主键id)>  </sysuser(当前对象),string(当前对象主键id)></p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">   </div><div class="line">public interface SysUserRepository  extends JpaRepository&lt;SysUser,String&gt; &#123; &#125;</div></pre></td></tr></table></figure>
+<p>   创建服务层类 SysUserService.java (新增修改删除查询，不用写sql)</p>
+   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">   @Service</div><div class="line">public class SysUserService &#123;</div><div class="line"></div><div class="line">    private final Logger logger = LoggerFactory.getLogger(this.getClass());</div><div class="line"></div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    private SysUserRepository sysUserRepository;</div><div class="line"></div><div class="line"></div><div class="line">    public List&lt;SysUser&gt; findAll() &#123;</div><div class="line">        return sysUserRepository.findAll();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public SysUser update(SysUser sysUser) &#123;</div><div class="line"></div><div class="line">        if (StringUtils.isEmpty(sysUser.getId())) &#123;</div><div class="line">            sysUser.setId(&quot;ID存在更新,否则新增&quot;);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        logger.debug(&quot;新增了用户&quot;);</div><div class="line">        return sysUserRepository.saveAndFlush(sysUser);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    public void delete(String id) &#123;</div><div class="line">        logger.debug(&quot;删除了用户&quot;);</div><div class="line">         sysUserRepository.delete(id);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    public SysUser findOne(String id) &#123;</div><div class="line">        return sysUserRepository.findOne(id);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h4 id="6-控制层调用"><a href="#6-控制层调用" class="headerlink" title="6. 控制层调用"></a>6. 控制层调用</h4><p>  创建SysUserController.java </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">  </div><div class="line">//系统用户管理</div><div class="line">@RestController</div><div class="line">@RequestMapping(&quot;/api/sysUser&quot;)</div><div class="line">public class SysUserController &#123;</div><div class="line"></div><div class="line">    @Autowired</div><div class="line">    SysUserService sysUserService;</div><div class="line"></div><div class="line">    @GetMapping(value = &quot;list&quot;)</div><div class="line">    public List&lt;SysUser&gt; list()&#123;</div><div class="line">        return sysUserService.findAll();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //获取数据</div><div class="line">    @GetMapping(value = &quot;update/&#123;id&#125;&quot;)</div><div class="line">    public SysUser get(@PathVariable(&quot;id&quot;)String id)&#123;</div><div class="line">        return sysUserService.findOne(id);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //新增</div><div class="line">    @PostMapping(value = &quot;update&quot;)</div><div class="line">    public Object add(@RequestBody SysUser c)&#123;</div><div class="line">        return sysUserService.update(c);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //更新</div><div class="line">    @PutMapping(value = &quot;update&quot;)</div><div class="line">    public SysUser update(@RequestBody SysUser c)&#123;</div><div class="line">        return sysUserService.update(c);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //删除</div><div class="line">    @DeleteMapping(value = &quot;update/&#123;id&#125;&quot;)</div><div class="line">    public void add(@PathVariable(&quot;id&quot;)String id)&#123;</div><div class="line">        sysUserService.delete(id);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>  到目前为止，我们实现了对单表的增删改查所有操作，没有写一句sql，下面我们将添加复杂sql查询，以及最终版本入门框架搭建</p>
+<h3 id="后续会介绍整体架构，可以应用于项目开发"><a href="#后续会介绍整体架构，可以应用于项目开发" class="headerlink" title="后续会介绍整体架构，可以应用于项目开发"></a>后续会介绍整体架构，可以应用于项目开发</h3><hr>
+<h4 id="项目源码-github源码地址-1"><a href="#项目源码-github源码地址-1" class="headerlink" title="项目源码:github源码地址"></a>项目源码:<a href="https://github.com/zccccccc/cici">github源码地址</a></h4><hr>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/06/spring-boot-搭建-不解释/" data-id="cj1yap0qh0008045r5nuvq9zo" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/09/spring-boot-完成版本－不解释/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          spring-boot 完成版本－不解释
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/02/13/crontab-定时任务/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">crontab 定时任务</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="clean-blog-spring-boot-搭建-不解释" data-title="spring-boot 搭建-不解释" data-url="https://github.com/zccccccc/2017/03/06/spring-boot-搭建-不解释/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'zccccccc'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/26/设计模式-状态模式/">设计模式-状态模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式迭代器－不解释/">设计模式迭代器－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式组合－不解释/">设计模式组合－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式模版方法－不解释/">设计模式模版方法－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/AES-加密MD5签名/">AES 加密MD5签名</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 张超<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>

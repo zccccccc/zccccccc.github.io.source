@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>设计模式适配器模式-不解释 | 变者</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="适配器模式: 将一个类的接口,转化成客户期望的另一个接口,适配器让原本不兼容的类可以合作无间1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818">
+<meta property="og:type" content="article">
+<meta property="og:title" content="设计模式适配器模式-不解释">
+<meta property="og:url" content="https://github.com/zccccccc/2017/03/10/设计模式适配器模式-不解释/index.html">
+<meta property="og:site_name" content="变者">
+<meta property="og:description" content="适配器模式: 将一个类的接口,转化成客户期望的另一个接口,适配器让原本不兼容的类可以合作无间1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818">
+<meta property="og:updated_time" content="2017-03-10T09:29:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="设计模式适配器模式-不解释">
+<meta name="twitter:description" content="适配器模式: 将一个类的接口,转化成客户期望的另一个接口,适配器让原本不兼容的类可以合作无间1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818">
+  
+    <link rel="alternate" href="/atom.xml" title="变者" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+
+</head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">变者</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://github.com/zccccccc"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="clean-blog-设计模式适配器模式-不解释" class="article article-type-clean-blog" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2017/03/10/设计模式适配器模式-不解释/" class="article-date">
+  <time datetime="2017-03-10T09:18:57.000Z" itemprop="datePublished">2017-03-10</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      设计模式适配器模式-不解释
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="适配器模式-将一个类的接口-转化成客户期望的另一个接口-适配器让原本不兼容的类可以合作无间"><a href="#适配器模式-将一个类的接口-转化成客户期望的另一个接口-适配器让原本不兼容的类可以合作无间" class="headerlink" title="适配器模式: 将一个类的接口,转化成客户期望的另一个接口,适配器让原本不兼容的类可以合作无间"></a>适配器模式: 将一个类的接口,转化成客户期望的另一个接口,适配器让原本不兼容的类可以合作无间</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line">/**</div><div class="line"> * 适配器模式: 将一个类的接口,转化成客户期望的另一个接口,适配器让原本不兼容的类可以合作无间</div><div class="line"> * 适配过程</div><div class="line"> * 1.客户通过目标接口调用适配器的方法对适配器发出请求</div><div class="line"> * 2.适配器使用被适配者接口把请求转化成适配者的一个或多个调用接口</div><div class="line"> * 3.客户接受到调用的结果,但并未察觉这一切是适配器在起转化作用</div><div class="line"> *</div><div class="line"> * 对象适配器:基于组合实现(所有方法必须使用适配者中的方法重新实现,可以接受任务目标接口子类)</div><div class="line"> * 类适配器: 基于继承实现 (方法可自定义实现,不用完全重新目标接口中方法 直接继承被适配者)</div><div class="line"> *</div><div class="line"> *</div><div class="line"> * ***************</div><div class="line"> * 当需要使用一个现有的类而起接口并不符合你的需要时,就使用适配器</div><div class="line"> * 当需要简化并统一一个很大的接口或是一群复杂的接口是,使用外观</div><div class="line"> * 适配器改变接口符合客户的期望</div><div class="line"> * 外观将客户从一个负责的子系统中解耦</div><div class="line"> * 实现一个外观,需要将系统组合进外观中,然后工作委托给子系统执行</div><div class="line"> * 适配器模式两种模式: 对象适配,类适配</div><div class="line"> * 适配器将一个对象包装起来以改变其接口,装饰者将一个对象包装起来以增加新的行为和责任,而外观将一群对象包装起来简化其接口</div><div class="line"> * ***************</div><div class="line"> */</div><div class="line">public class AdapterPattern &#123;</div><div class="line"></div><div class="line"></div><div class="line">    public static void main(String args[])&#123;</div><div class="line"></div><div class="line"></div><div class="line">        System.out.println(&quot;--------------------对象适配----------------------------------------&quot;);</div><div class="line"></div><div class="line"></div><div class="line">        outdoorGameAdapterTestByObjectDemo();</div><div class="line"></div><div class="line"></div><div class="line">        System.out.println(&quot;--------------------类适配----------------------------------------&quot;);</div><div class="line"></div><div class="line">        outdoorGameAdapterTestByClassDemo();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    //对象适配器演示</div><div class="line">    public static void outdoorGameAdapterTestByObjectDemo()&#123;</div><div class="line">        //计算机游戏</div><div class="line">        ComputerGame computerGame = new TheWorldOfLegendGame();</div><div class="line"></div><div class="line">        computerGame.spend();</div><div class="line">        computerGame.timeLimit();</div><div class="line"></div><div class="line"></div><div class="line">        //使用对象适配 户外活动游戏</div><div class="line">        OutdoorGame outdoorGame = new ClimbMountainGame();</div><div class="line">        computerGame = new OutdoorGameAdapter(outdoorGame);</div><div class="line">        System.out.println(&quot;===适配后===&quot;);</div><div class="line">        computerGame.spend();</div><div class="line">        computerGame.timeLimit();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    //类适配器演示</div><div class="line">    public static void outdoorGameAdapterTestByClassDemo()&#123;</div><div class="line">        //计算机游戏</div><div class="line">        ComputerGame computerGame = new TheWorldOfLegendGame();</div><div class="line"></div><div class="line">        computerGame.spend();</div><div class="line">        computerGame.timeLimit();</div><div class="line"></div><div class="line">        computerGame = new OutdoorGameAdapter2(computerGame);</div><div class="line"></div><div class="line">        System.out.println(&quot;===适配后===&quot;);</div><div class="line">        computerGame.spend();</div><div class="line">        computerGame.timeLimit();</div><div class="line"></div><div class="line">     &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//定义个计算机游戏接口</div><div class="line">interface ComputerGame&#123;</div><div class="line"></div><div class="line">    //游戏需要花费</div><div class="line">    void spend();</div><div class="line"></div><div class="line">    //游戏时间限制</div><div class="line">    void timeLimit();</div><div class="line">&#125;</div><div class="line"></div><div class="line">//定义户外活动接口</div><div class="line">interface OutdoorGame&#123;</div><div class="line"></div><div class="line">    //活动报名费用</div><div class="line">    void enrollSpend();</div><div class="line">    //活动门票</div><div class="line">    void entranceSpend();</div><div class="line">    //活动车费</div><div class="line">    void waySpend();</div><div class="line"></div><div class="line">    //活动时间</div><div class="line">    void  SportTime();</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">//计算机游戏具体实现</div><div class="line">class TheWorldOfLegendGame implements ComputerGame&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void spend() &#123;</div><div class="line"></div><div class="line">        System.out.println(&quot;传奇世界 需要花费每小时5元人民币&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void timeLimit() &#123;</div><div class="line"></div><div class="line">        System.out.println(&quot;每天最多在线7小时&quot;);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//获取活动具体实现</div><div class="line"></div><div class="line">class ClimbMountainGame implements OutdoorGame&#123;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void enrollSpend() &#123;</div><div class="line">        System.out.println(&quot;报名费 10元&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void entranceSpend() &#123;</div><div class="line">        System.out.println(&quot;门票 15元&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void waySpend() &#123;</div><div class="line">        System.out.println(&quot;路费 50元&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void SportTime() &#123;</div><div class="line">        System.out.println(&quot;活动时间一天 17小时左右&quot;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">//---------- 对象适配器 将 OutdoorGame 适配 SportGame 可以接受任意 ComputerGame 子类   ---------</div><div class="line"></div><div class="line"></div><div class="line">//定义 OutdoorGame 适配器</div><div class="line">class OutdoorGameAdapter implements ComputerGame&#123;</div><div class="line"></div><div class="line">    OutdoorGame outdoorGame;</div><div class="line"></div><div class="line">    public OutdoorGameAdapter(OutdoorGame outdoorGame) &#123;</div><div class="line">        this.outdoorGame = outdoorGame;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void spend() &#123;</div><div class="line">        outdoorGame.enrollSpend();</div><div class="line">        outdoorGame.entranceSpend();</div><div class="line">        outdoorGame.waySpend();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void timeLimit() &#123;</div><div class="line">        outdoorGame.SportTime();</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">//---------- 类适配器 ---------</div><div class="line"></div><div class="line">//我们只想使用配适配这的 消费方法(spend()),时间方法沿用目标接口(timeLimit())</div><div class="line">class OutdoorGameAdapter2 extends ClimbMountainGame implements ComputerGame&#123;</div><div class="line"></div><div class="line"></div><div class="line">    ComputerGame computerGame;</div><div class="line">    public OutdoorGameAdapter2(ComputerGame computerGame) &#123;</div><div class="line">        this.computerGame = computerGame;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void spend() &#123;</div><div class="line">        super.enrollSpend();</div><div class="line">        super.entranceSpend();</div><div class="line">        super.waySpend();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    @Override</div><div class="line">    public void timeLimit() &#123;</div><div class="line">        computerGame.timeLimit();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://github.com/zccccccc/2017/03/10/设计模式适配器模式-不解释/" data-id="cj1yap0r80012045rt4cj8d46" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/10/设计模式外观模式-不解释/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          设计模式外观模式-不解释
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/03/10/设计模式装饰模式-不解释/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">设计模式装饰模式-不解释</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+    <!-- 多说评论框 start -->
+    <div class="ds-thread" data-thread-key="clean-blog-设计模式适配器模式-不解释" data-title="设计模式适配器模式-不解释" data-url="https://github.com/zccccccc/2017/03/10/设计模式适配器模式-不解释/"></div>
+    <!-- 多说评论框 end -->
+    <!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+    <script type="text/javascript">
+    var duoshuoQuery = {short_name:'zccccccc'};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] 
+         || document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+      </script>
+    <!-- 多说公共JS代码 end -->
+</section>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/linux/">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/java/" style="font-size: 15px;">java</a> <a href="/tags/linux/" style="font-size: 10px;">linux</a> <a href="/tags/设计模式/" style="font-size: 20px;">设计模式</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/04/">April 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/03/">March 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/02/">February 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2017/04/26/设计模式-状态模式/">设计模式-状态模式</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式迭代器－不解释/">设计模式迭代器－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式组合－不解释/">设计模式组合－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/29/设计模式模版方法－不解释/">设计模式模版方法－不解释</a>
+          </li>
+        
+          <li>
+            <a href="/2017/03/22/AES-加密MD5签名/">AES 加密MD5签名</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2017 张超<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+  </div>
+</body>
+</html>
